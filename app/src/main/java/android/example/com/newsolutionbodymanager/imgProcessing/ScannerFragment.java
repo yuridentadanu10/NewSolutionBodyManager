@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ import com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceAutoMLImageLabe
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +45,7 @@ import static android.app.Activity.RESULT_OK;
 public class ScannerFragment extends BaseFragment implements View.OnClickListener{
     private ImageView mImageView;
     private TextView mTextView;
+    private static final String TAG = "Image Scanner";
     private static final String REMOTE_MODEL_NAME = "LINE_FRIENDS";
     private static final String LOCAL_MODEL_NAME = "my_local_model";
     private FirebaseVisionImageLabeler labeler;
@@ -159,8 +162,11 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
 
     private void extractLabel(List<FirebaseVisionImageLabel> labels) {
         for (FirebaseVisionImageLabel label : labels) {
+
             mTextView.append(label.getText() + "\n");
             mTextView.append(label.getConfidence() + "\n\n");
+            Log.d(TAG, "labels "+labels+" label ===="+label.getText() +" TEXTVIEW ==="+mTextView );
+        
         }
     }
 

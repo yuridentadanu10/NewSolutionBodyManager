@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,8 @@ public class ListFoodActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     private FoodAdapter adapter;
     public static final String MOVIE_ITEM = "film";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,29 +65,10 @@ public class ListFoodActivity extends AppCompatActivity {
                 String id = documentSnapshot.getId();
                 Toast.makeText(ListFoodActivity.this,
                         "Position: " +position + " ID: " +id, Toast.LENGTH_SHORT).show();
-                final String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
-               final DocumentReference dt = db.collection("users").document(uid);
-                final DocumentReference dx = db.collection("food").document("");
-                db.runTransaction(new Transaction.Function<Double>() {
-                    @Override
-                    public Double apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
-
-                        DocumentSnapshot dashboard = transaction.get(dt);
-                        DocumentSnapshot food = transaction.get(dx);
-                        double calorie = food.getDouble("calorie");
-                        double caloriedaily = dashboard.getDouble("dailyCalorie")+calorie;
-
-                            transaction.update(dt, "dailyCalorie", caloriedaily);
-
-                        return caloriedaily;
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<Double>() {
-                    @Override
-                    public void onSuccess(Double result) {
-                        Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
-
-                    }
-                });
+                Intent intent = new Intent(ListFoodActivity.this, DetailActivityFood.class);
+                //intent.putExtra("model", model);
+                intent.putExtra("jangkrik", id);
+                startActivity(intent);
             }
 
         });
@@ -104,6 +88,6 @@ public class ListFoodActivity extends AppCompatActivity {
     }
 
 
-   
+
 }
 

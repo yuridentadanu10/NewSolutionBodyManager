@@ -74,6 +74,7 @@
     <string name="target_weight">Target Weight</string>
     <string name="_65">65</string>
     <string name="kg">Kg</string>
+    <string name="Addfood">Add Food</string>
 
     <string-array name="kelamin">
         <item>Male</item>

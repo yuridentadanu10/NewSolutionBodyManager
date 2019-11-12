@@ -1,5 +1,6 @@
 package android.example.com.newsolutionbodymanager.recyclerView;
 
+import android.content.Context;
 import android.example.com.newsolutionbodymanager.R;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 
 public class FoodAdapter extends FirestoreRecyclerAdapter<Food, FoodAdapter.FoodHolder> {
     private OnItemClickListener listener;
+    Context c;
+    String id;
+
 
     public FoodAdapter(@NonNull FirestoreRecyclerOptions<Food> options) {
         super(options);

@@ -3,7 +3,6 @@
     package="android.example.com.newsolutionbodymanager"
     android:installLocation="auto">
 
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,7 +14,6 @@
         android:name="android.hardware.camera.autofocus"
         android:required="true" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".recyclerView.ListFoodActivity"></activity>
+        <activity android:name=".recyclerView.DetailActivityFood"></activity>
+        <activity android:name=".recyclerView.ListFoodActivity" />
         <activity android:name=".FoodConsumtion.FoodConsumtion" />
         <activity android:name=".welcomingActivity.FirstTimeSetupActivity" />
         <activity android:name=".LoginAndFriend.RegisterActivity" />

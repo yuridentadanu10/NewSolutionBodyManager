@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -30,6 +32,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Transaction;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,19 +101,45 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                 }
 
                 if (snapshot != null && snapshot.exists()) {
-                    double dailyCalorieGoal = snapshot.getDouble("dailyCalorieGoal");
-                    double dailyCalorie = snapshot.getDouble("dailyCalorie");
-                    double calorieConsumed = snapshot.getDouble("consumedCalorie");
-                    double calorieBurned = snapshot.getDouble("burnedCalorie");
-                    double currentWeight = snapshot.getDouble("weight");
-                    double weightGoal = snapshot.getDouble("weightGoal");
+                    Log.d(TAG, "Current data: " + snapshot.getData());
 
-                    tvCalorieGoal.setText(String.valueOf(dailyCalorieGoal));
+
+                    Long dailyCalorie = snapshot.getLong("dailyCalorie");
+                    Long calorieConsumed = snapshot.getLong("consumedCalorie");
+                    Long calorieBurned = snapshot.getLong("burnedCalorie");
+                    Long currentWeight = snapshot.getLong("weight");
+                    Long weightGoal = snapshot.getLong("weightGoal");
+
+
                     tvDailyCalorie.setText(String.valueOf(dailyCalorie));
                     tvCalorieConsumed.setText(String.valueOf(calorieConsumed));
                     tv_caloriBurn.setText(String.valueOf(calorieBurned));
                     tvCurrentWeight.setText(String.valueOf(currentWeight));
                     tvWeightGoal.setText(String.valueOf(weightGoal));
+
+                    db.runTransaction(new Transaction.Function<Double>() {
+                        @Override
+                        public Double apply(Transaction transaction) throws FirebaseFirestoreException {
+                            DocumentSnapshot snapshot = transaction.get(userRef);
+                            double kaloriburned = snapshot.getDouble("burnedCalorie");
+                            double kalorikonsum = snapshot.getDouble("consumedCalorie") ;
+                            double total =  kaloriburned+kalorikonsum;
+
+                                transaction.update(userRef, "dailyCalorie", total);
+                                return total;
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<Double>() {
+                        @Override
+                        public void onSuccess(Double result) {
+                            Log.d(TAG, "Transaction success: " + result);
+                        }
+                    })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w(TAG, "Transaction failure.", e);
+                                }
+                            });
                 } else {
                     Log.d(TAG, "Current data: null");
                 }

@@ -28,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Age"
+            android:inputType="number"
             android:id="@+id/et_age">
         </androidx.appcompat.widget.AppCompatEditText>
 
@@ -41,18 +42,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Weight (Kg)"
+            android:inputType="number"
             android:id="@+id/et_weight">
         </androidx.appcompat.widget.AppCompatEditText>
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Weight Goal (Kg)"
+            android:inputType="number"
             android:id="@+id/et_weightGoal">
         </androidx.appcompat.widget.AppCompatEditText>
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Height (cm)"
+            android:inputType="number"
             android:id="@+id/et_height">
         </androidx.appcompat.widget.AppCompatEditText>
 
