@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">New Solution Body Manager</string>
+    <string name="app_name">Solution Body Manager</string>
     <string name="Welcome_title">Welcome to Solution Body Manager</string>
     <string name="weclome_description">Since it’s your first time using this application, we would like to know you better beforehand</string>
     <string name="weclome_description2">The data you provide will serve to help us  make a suitable routine for you to reach your goal</string>
@@ -65,6 +65,15 @@
     <string name="placeholder_tanggal">23 November 2019</string>
     <string name="placeholder_edit">Edit</string>
     <string name="titleMovie">Nasi Goreng 100</string>
+    <string name="today_s_calorie_count">Today\'s Calorie Count</string>
+    <string name="_580">580</string>
+    <string name="slice">/</string>
+    <string name="_2200">2200</string>
+    <string name="calories">Calories</string>
+    <string name="changes_plans">Change Plans</string>
+    <string name="target_weight">Target Weight</string>
+    <string name="_65">65</string>
+    <string name="kg">Kg</string>
 
     <string-array name="kelamin">
         <item>Male</item>

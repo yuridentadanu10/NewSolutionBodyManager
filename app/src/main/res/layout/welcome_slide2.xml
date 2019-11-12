@@ -5,22 +5,22 @@
 
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="255dp"
         android:id="@+id/img_welcome1"
-        android:layout_height="wrap_content"
+        android:layout_height="256dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="172dp"
-        android:src="@drawable/tes123" />
+        android:layout_marginTop="139dp"
+        android:src="@drawable/welcome2" />
 
     <TextView
         android:id="@+id/Welcome1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginLeft="33dp"
         android:layout_marginRight="33dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/weclome_description21"
+        android:text="@string/scan_your_food_s_nutritional_value"
         android:textColor="@android:color/background_dark"
         android:textSize="18sp"
         android:layout_gravity="center"
@@ -31,14 +31,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Welcome1"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="24dp"
         android:layout_marginRight="59dp"
         android:layout_marginLeft="59dp"
-        android:text="@string/weclome_description"
+        android:text="@string/use_our_food_scanning_feature_to_check_up_on_your_daily_nutritional_intake"
         android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorText"
         android:textSize="12sp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="670dp"
+        android:text="Skip"
+        android:textColor="#8D8D8D"
+        android:textSize="17sp" />
+
 
 
 </RelativeLayout>

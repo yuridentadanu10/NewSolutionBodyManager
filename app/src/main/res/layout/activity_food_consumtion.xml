@@ -5,19 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".FoodConsumtion.FoodConsumtion">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="365dp"
-        android:src="@drawable/reload"
-        />
     <LinearLayout
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="71dp">
+        android:layout_marginTop="19dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +103,7 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
+        android:id="@+id/btn_list_breakfast"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/elipse"

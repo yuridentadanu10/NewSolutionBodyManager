@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.example.com.newsolutionbodymanager.R;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,6 +31,7 @@ public class ListFoodActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
     private FoodAdapter adapter;
+    public static final String MOVIE_ITEM = "film";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +64,7 @@ public class ListFoodActivity extends AppCompatActivity {
                         "Position: " +position + " ID: " +id, Toast.LENGTH_SHORT).show();
                 final String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
                final DocumentReference dt = db.collection("users").document(uid);
-                final DocumentReference dx = db.collection("food").document(id);
+                final DocumentReference dx = db.collection("food").document("");
                 db.runTransaction(new Transaction.Function<Double>() {
                     @Override
                     public Double apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
@@ -100,5 +102,8 @@ public class ListFoodActivity extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+
+
+   
 }
 

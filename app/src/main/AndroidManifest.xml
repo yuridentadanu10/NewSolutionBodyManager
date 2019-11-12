@@ -25,7 +25,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".recyclerView.ListFoodActivity"></activity>
         <activity android:name=".FoodConsumtion.FoodConsumtion" />
-        <activity android:name=".imgProcessing.AutoMLActivity" />
         <activity android:name=".welcomingActivity.FirstTimeSetupActivity" />
         <activity android:name=".LoginAndFriend.RegisterActivity" />
         <activity android:name=".welcomingActivity.Welcome_Activity" />
