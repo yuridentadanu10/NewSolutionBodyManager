@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#ffff"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".bottomNav.DashboardFragment">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:background="#ffff"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="280dp"
+                android:id="@+id/linear_tanggal"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_date"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/placeholder_tanggal"
+                    android:textColor="#76C33A"
+                    android:textSize="20sp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:id="@+id/linear_calorie_goal"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-3dp"
+                android:layout_below="@+id/linear_tanggal"
+                android:background="@drawable/radius_calorie_goal"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:id="@+id/btn_edit_data_goal"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/placeholder_edit"
+                    android:textColor="#fff"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Calorie Goal"
+                    android:textColor="#fff"
+                    android:textSize="15sp"
+
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_daily_calorie"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="580"
+                        android:textColor="#fff"
+                        android:textSize="40sp"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="/"
+                        android:textColor="#fff"
+                        android:textSize="40sp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_calorie_goal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:text="2200"
+                        android:textColor="#fff"
+                        android:textSize="40sp"
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="-3dp"
+                android:layout_width="fill_parent"
+                android:id="@+id/linear_monitoring"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_4_colum_calorie"
+                android:orientation="horizontal"
+                android:layout_below="@+id/linear_calorie_goal"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp">
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/radius_inside_4colum_calorie">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calories Consumed"
+                        android:textColor="#76C33A"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:id="@+id/tv_consumed_calori"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_630_kcal"
+                        android:textColor="#76C33A"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/radius_inside_4colum_calorie">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calories Burned"
+                        android:textColor="#76C33A"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_calorie_burned"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_250_kcal"
+                        android:textColor="#76C33A"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:id="@+id/linear_monitoring2"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_4_colum_calorie"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="220dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp">
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/radius_inside_4colum_calorie">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Current Weight"
+                        android:textColor="#76C33A"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/tv_current_weight"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_58_kg"
+                        android:textColor="#76C33A"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="152dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/radius_inside_4colum_calorie">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Weight Goal"
+                        android:textColor="#76C33A"
+                        android:textSize="12sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_60_kg"
+                        android:id="@+id/tv_weight_goal"
+                        android:textColor="#76C33A"
+                        android:textSize="20sp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:id="@+id/linear_hide"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-3dp"
+                android:layout_below="@+id/linear_monitoring2"
+                android:background="@drawable/radius_hide"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Hide"
+                    android:textColor="#fff"
+                    android:textSize="14dp"
+
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:id="@+id/linear_burned_today"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear_hide"
+                android:layout_marginTop="41dp"
+                android:background="@drawable/radius_ooo"
+                android:orientation="vertical"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="8dp"
+                    android:text="@string/calories_burned_today"
+                    android:textColor="#76C33A"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_weight="1"
+                        android:text="Walking"
+                        android:textColor="#76C33A"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_marginRight="50dp"
+                        android:text="250 Cal"
+                        android:textColor="#76C33A"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="230dp"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#76C33A"></View>
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/plus">
+
+                    </ImageView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:text="@string/total"
+                        android:layout_weight="1"
+                        android:textColor="#76C33A"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_250_cal"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:layout_marginRight="50dp"
+                        android:textColor="#76C33A"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/linear_btnakeh"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-31.9dp"
+                android:layout_below="@+id/linear_burned_today"
+                android:background="@drawable/radius_burned_button"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/btn_walking"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="34dp"
+                    android:layout_marginRight="34dp"
+                    android:src="@drawable/walkingputih" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#fff"></View>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/btn_running"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/runningputih"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginLeft="34dp"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#fff"></View>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:id="@+id/btn_cycling"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cyclingputih"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginLeft="34dp"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#fff"></View>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/btnhiking"
+                    android:src="@drawable/hikingputih"
+                    android:layout_marginRight="34dp"
+                    android:layout_marginLeft="34dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/radius_ooo"
+                android:orientation="vertical"
+                android:layout_below="@+id/linear_btnakeh"
+                android:layout_marginTop="40dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="21dp"
+                android:paddingRight="21dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/food"
+                    android:textSize="15sp"
+                    android:textColor="#76C33A"
+                    android:layout_gravity="center"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="9dp"
+                    android:background="@drawable/radius_burned_button"
+                    android:orientation="vertical"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="7dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Breakfast"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:text="250 Cal"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:text="+ Add Breakfast"
+                        android:textColor="#fff"
+                        android:id="@+id/btn_add_breakfast"
+                        android:textSize="16sp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#fff"></View>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="7dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Lunch"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:text="250 Cal"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="29dp"
+                        android:id="@+id/btn_add_lunch"
+                        android:text="+ Add Lunch"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="7dp"
+                        android:background="#fff"></View>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="7dp"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="Dinner"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            android:layout_weight="1"
+                            />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:text="250 Cal"
+                            android:textColor="#fff"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btn_add_dinner"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="29dp"
+                        android:text="+ Add Dinner"
+                        android:textColor="#fff"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+</ScrollView>

@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">New Solution Body Manager</string>
+    <string name="Welcome_title">Welcome to Solution Body Manager</string>
+    <string name="weclome_description">Since it’s your first time using this application, we would like to know you better beforehand</string>
+    <string name="weclome_description2">The data you provide will serve to help us  make a suitable routine for you to reach your goal</string>
+    <string name="weclome_description21">Let’s get started!</string>
+    <string name="_630_kcal">630</string>
+    <string name="_250_kcal">250</string>
+    <string name="_58_kg">58 kg</string>
+    <string name="_60_kg">60 kg</string>
+    <string name="already_have_an_account_log_in">Already have an account?</string>
+    <string name="skip">skip</string>
+    <string name="next">next</string>
+    <string name="start">start</string>
+    <string name="input_error_name">please enter your name :(</string>
+    <string name="input_error_email">please enter your email :(</string>
+    <string name="input_error_email_invalid">your email is wrong :(</string>
+    <string name="input_error_password">please enter your password :(</string>
+    <string name="input_error_password_length">kegampangen</string>
+    <string name="input_confirm_false">Password not match :(</string>
+    <string name="dont_have_account">Don\'t have a SBM account ? Sign up here !</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Menu">Dashboard</string>
+    <string name="ScanFood">Scan Food</string>
+    <string name="Profile">Profile</string>
+    <string name="log_in">Log In</string>
+    <string name="scan_your_food_s_nutritional_value">Scan your food’s nutritional value</string>
+    <string name="use_our_food_scanning_feature_to_check_up_on_your_daily_nutritional_intake">Use our food scanning feature to check up on your daily nutritional intake!</string>
+    <string name="today">Today</string>
+    <string name="add_exercises">Add Exercises</string>
+    <string name="calories_burned_today">Calories Burned Today</string>
+    <string name="total">Total</string>
+    <string name="_250_cal">250 Cal</string>
+    <string name="fppd">Fppd</string>
+    <string name="food">Food</string>
+    <string name="lunch">Lunch</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="snacks">Snacks</string>
+    <string name="edit">Edit</string>
+    <string name="john_doe">John Doe</string>
+    <string name="jan_01_1999">Jan 01, 1999</string>
+    <string name="male">Male</string>
+    <string name="_166_cm">166 cm</string>
+    <string name="search_for_food_or_restaurant">Search for food or restaurant</string>
+    <string name="chicken_sandwich">Chicken Sandwich</string>
+    <string name="_252_calories">252 Calories</string>
+    <string name="serving_amount">Serving amount</string>
+    <string name="macronutrients">Macronutrients</string>
+    <string name="_42_carbohidrate">42% Carbohidrate</string>
+    <string name="confirm_permission">This app need to access files on your device.</string>
+    <string name="confirm_camera">This app need to access camera on your device.</string>
+    <string name="_42_carbohirates">42% Carbohirates</string>
+    <string name="_24_fat">24% Fat</string>
+    <string name="_34_protein">34% Protein</string>
+    <string name="available_at">Available at</string>
+    <string name="randy_s_restaurant">Randy\'s Restaurant</string>
+    <string name="_0_5_km">0.5 km</string>
+    <string name="mc_diddles">Mc\'Diddles</string>
+    <string name="_0_7_km">0.7 km</string>
+    <string name="amount_of_service">Amount of service</string>
+    <string name="action_gallery">Gallery</string>
+    <string name="action_camera">Camera</string>
+    <string name="placeholder_tanggal">23 November 2019</string>
+    <string name="placeholder_edit">Edit</string>
+    <string name="titleMovie">Nasi Goreng 100</string>
+
+    <string-array name="kelamin">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+</resources>

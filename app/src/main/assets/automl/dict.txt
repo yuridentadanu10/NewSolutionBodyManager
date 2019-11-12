@@ -1,0 +1,10 @@
+bsteak
+hamburger
+hotdog
+nasgor
+nasi
+pizza
+sandwich
+sausage
+opoiki
+toast

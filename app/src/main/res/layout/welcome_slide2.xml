@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/img_welcome1"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="172dp"
+        android:src="@drawable/tes123" />
+
+    <TextView
+        android:id="@+id/Welcome1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weclome_description21"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_below="@+id/img_welcome1"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Welcome1"
+        android:layout_marginTop="17dp"
+        android:layout_marginRight="59dp"
+        android:layout_marginLeft="59dp"
+        android:text="@string/weclome_description"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorText"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>

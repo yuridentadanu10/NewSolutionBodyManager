@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background_login"
+    android:orientation="vertical"
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    tools:context=".LoginAndFriend.RegisterActivity">
+
+    <ImageView
+        android:layout_marginTop="79dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="140dp"
+        android:id="@+id/logo"
+        android:layout_width="80.5dp"
+        android:layout_height="91dp"
+        android:src="@drawable/logo" />
+
+    <RelativeLayout
+        android:layout_below="@+id/logo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/radius_corner"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sign Up"
+                android:textColor="#58A74C"
+                android:textSize="30dp"
+                android:layout_marginBottom="20dp"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username">
+
+
+            </androidx.appcompat.widget.AppCompatEditText>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email">
+
+
+            </androidx.appcompat.widget.AppCompatEditText>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword">
+
+
+            </androidx.appcompat.widget.AppCompatEditText>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:id="@+id/et_confirm"
+                android:inputType="textPassword">
+
+
+            </androidx.appcompat.widget.AppCompatEditText>
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="150dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:background="@drawable/radius_corner_login"
+                android:text="Sign Up"
+
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_haveAccount"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="635dp"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:paddingTop="5dp"
+        android:text="@string/already_have_an_account_log_in"/>
+
+
+
+</RelativeLayout>

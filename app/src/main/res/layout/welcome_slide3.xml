@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp">
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp"
+        android:textColor="#000"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:text="Please fill out this form to complete your account setup"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="203dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"
+            android:id="@+id/et_age">
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="Male" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight (Kg)"
+            android:id="@+id/et_weight">
+        </androidx.appcompat.widget.AppCompatEditText>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight Goal (Kg)"
+            android:id="@+id/et_weightGoal">
+        </androidx.appcompat.widget.AppCompatEditText>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Height (cm)"
+            android:id="@+id/et_height">
+        </androidx.appcompat.widget.AppCompatEditText>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="482dp"
+        android:orientation="vertical">
+
+
+        <Button
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="22dp"
+            android:id="@+id/btnSubmitAdditionalData"
+            android:background="@drawable/radius_corner_login"
+            android:text="Confirm"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="482dp"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

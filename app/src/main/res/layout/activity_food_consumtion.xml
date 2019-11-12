@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodConsumtion.FoodConsumtion">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="365dp"
+        android:src="@drawable/reload"
+        />
+    <LinearLayout
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/today"
+            android:textColor="#76C33A"
+            android:textSize="20sp"
+            android:layout_marginBottom="13dp" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#BFBFBF" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Walking"
+            android:textColor="#76C33A"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Walking"
+                android:textColor="#76C33A"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="158dp"
+                android:text="250 Cal"
+                android:textColor="#76C33A"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="97dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Walking"
+                android:textColor="#76C33A"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="158dp"
+                android:text="250 Cal"
+                android:textColor="#76C33A"
+                android:textSize="16sp"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="#BFBFBF" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="370dp"
+        android:background="@drawable/radius_food">
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/elipse"
+        android:layout_marginTop="396dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/elipse"
+        android:layout_marginTop="493dp"
+        android:layout_marginLeft="40dp" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/elipse"
+        android:layout_marginTop="493dp"
+        android:layout_marginLeft="300dp" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/elipse"
+        android:layout_marginTop="595dp"
+        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="370dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/chicken"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lunch"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="469dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/egg"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/breakfast"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="469dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/dinnerlogo"
+            android:layout_marginBottom="15dp">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dinner"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="570dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/pizza"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="15dp">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snacks"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</RelativeLayout>
