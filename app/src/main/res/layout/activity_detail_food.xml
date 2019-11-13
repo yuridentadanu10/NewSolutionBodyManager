@@ -37,20 +37,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_marginTop="21dp">
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="194dp"
-                android:src="@drawable/radius_box_ijo" />
+
             <ImageView
                 android:layout_width="341.2dp"
+                android:id="@+id/img_food"
                 android:layout_height="194dp"
-                android:src="@drawable/sandwich" />
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="194dp"
-                android:src="@drawable/radius_box_ijo" />
+                android:background="@drawable/radius_corner"
+                android:layout_gravity="center"
+                 />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

@@ -10,8 +10,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_toEndOf="@id/img_movie"
-            android:textSize="20sp"
+            android:layout_toEndOf="@id/img_food"
+            android:textSize="14sp"
             tools:text="@string/titleMovie" />
     <TextView
         android:id="@+id/tv_calorie_info"
@@ -20,14 +20,24 @@
         android:layout_marginTop="5dp"
         android:layout_below="@+id/tv_food_name"
         android:layout_marginStart="15dp"
-        android:layout_toEndOf="@id/img_movie"
-        android:textSize="20sp"
+        android:layout_toEndOf="@id/img_food"
+        android:textSize="14sp"
         tools:text="@string/_250_cal" />
 
 
+    <TextView
+        android:id="@+id/tv_restaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_food_name"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@id/img_food"
+        android:textSize="14sp"
+        tools:text="@string/Restaurant_HamishDaud" />
 
     <ImageView
-            android:id="@+id/img_movie"
+            android:id="@+id/img_food"
             android:layout_width="97dp"
             android:layout_height="83dp"
             android:background="@drawable/radius_corner"

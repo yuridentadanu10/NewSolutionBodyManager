@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +25,19 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class DetailActivityFood extends AppCompatActivity implements View.OnClickListener{
 TextView foodName,calorieInfo,carbsInfo,proteinInfo,fatInfo;
 Button btnAddDetail;
+ImageView imgFood;
     private static final String TAG = "DetailFoodAct";
 
 private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth =FirebaseAuth.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,7 @@ calorieInfo = findViewById(R.id.tv_calorie_info);
         proteinInfo = findViewById(R.id.tv_protein_info);
         fatInfo = findViewById(R.id.tv_fat_info);
         btnAddDetail= findViewById(R.id.btn_add_detail_food);
+        imgFood = findViewById(R.id.img_food);
 
 
         btnAddDetail.setOnClickListener(this);
@@ -72,11 +79,16 @@ calorieInfo = findViewById(R.id.tv_calorie_info);
                         Long carbs = document.getLong("carbs");
                         Long protein = document.getLong("protein");
                         Long fat = document.getLong("fat");
+                        String img = document.getString("imageUrl");
+
                         calorieInfo.setText( String.valueOf(calorie)+" Calories");
                         carbsInfo.setText(String.valueOf(carbs)+"% Carbohidrate");
                         proteinInfo.setText(String.valueOf(protein)+"% Protein");
                         fatInfo.setText(String.valueOf(fat)+"% Fat");
-
+                        Picasso.get()
+                                .load(img)
+                                .placeholder(R.mipmap.ic_launcher)
+                                .into(imgFood);
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                     } else {
                         Log.d(TAG, "No such document");

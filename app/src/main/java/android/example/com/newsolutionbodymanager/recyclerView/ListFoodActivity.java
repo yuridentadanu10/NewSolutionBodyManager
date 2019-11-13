@@ -25,23 +25,29 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.Transaction;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class ListFoodActivity extends AppCompatActivity {
-
+    private StorageReference mStorageRef;
     private static final String TAG = "ListFOod";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
     private FoodAdapter adapter;
     public static final String MOVIE_ITEM = "film";
-
+    FirebaseStorage storage = FirebaseStorage.getInstance();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_food);
-
+        StorageReference storageRef = storage.getReference();
+        StorageReference imagesRef = storageRef.child("images");
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         setUpRecyclerView();
+
+
     }
 
     private void setUpRecyclerView() {

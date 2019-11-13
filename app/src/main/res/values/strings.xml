@@ -75,6 +75,9 @@
     <string name="_65">65</string>
     <string name="kg">Kg</string>
     <string name="Addfood">Add Food</string>
+    <string name="Restaurant_HamishDaud">Hamish Daud Restaurant</string>
+    <string name="confirm">Confirm</string>
+    <string name="food_scanned">Food Scanned</string>
 
     <string-array name="kelamin">
         <item>Male</item>

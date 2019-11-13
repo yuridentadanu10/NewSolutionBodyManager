@@ -2,7 +2,9 @@ package android.example.com.newsolutionbodymanager.imgProcessing;
 
 
 import android.content.Intent;
+import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.recyclerView.DetailActivityFood;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -18,11 +20,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Transaction;
 import com.google.firebase.ml.common.FirebaseMLException;
 import com.google.firebase.ml.common.modeldownload.FirebaseLocalModel;
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions;
@@ -43,13 +55,18 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class ScannerFragment extends BaseFragment implements View.OnClickListener{
+    private ProgressBar mProgressBar;
     private ImageView mImageView;
     private TextView mTextView;
     private static final String TAG = "Image Scanner";
     private static final String REMOTE_MODEL_NAME = "LINE_FRIENDS";
     private static final String LOCAL_MODEL_NAME = "my_local_model";
     private FirebaseVisionImageLabeler labeler;
-    Button btnPhoto, btnGallery;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    Button btnPhoto, btnGallery,btnScanFood;
+    public Long calorie;
+    public String makanan ;
+    public Float deteksijelek;
 
     public ScannerFragment() {
         // Required empty public constructor
@@ -71,6 +88,8 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
         mTextView = view.findViewById(R.id.text_view);
         btnGallery = view.findViewById(R.id.btn_galeri);
         btnPhoto = view.findViewById(R.id.btn_foto);
+        mProgressBar = view.findViewById(R.id.progressBar);
+        
 
         FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
 
@@ -132,6 +151,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
                     break;
                 case RC_TAKE_PICTURE:
                     bitmap = MyHelper.resizeImage(imageFile, imageFile.getPath(), mImageView);
+
                     if (bitmap != null) {
                         mTextView.setText(null);
                         mImageView.setImageBitmap(bitmap);
@@ -150,6 +170,19 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             @Override
             public void onSuccess(List<FirebaseVisionImageLabel> labels) {
                 extractLabel(labels);
+                Log.d(TAG, "onSuccess:JAAAAAAAAAAAAAAAAANGKTIK  "+ makanan);
+                if(deteksijelek>0.6) {
+
+                    cekdatabase(makanan);
+                    showLoading(false);
+                }
+                else{
+                    showLoading(false);
+                    Toast.makeText(getContext(),
+                            "Scan gambar gagal karena gambar yang anda ambil kurang bagus! Silahkan scan ulang ya :)  ", Toast.LENGTH_SHORT).show();
+                }
+                Log.d(TAG, "onSuccess: OOOOOOOOOOOOOOOOOOOOOOOOO"+calorie);
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -160,16 +193,88 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
         });
     }
 
+
     private void extractLabel(List<FirebaseVisionImageLabel> labels) {
         for (FirebaseVisionImageLabel label : labels) {
 
-            mTextView.append(label.getText() + "\n");
-            mTextView.append(label.getConfidence() + "\n\n");
+            mTextView.setText(label.getText() + "\n");
+            mTextView.setText(label.getConfidence() + "\n\n");
             Log.d(TAG, "labels "+labels+" label ===="+label.getText() +" TEXTVIEW ==="+mTextView );
-        
+
+            makanan = label.getText();
+            deteksijelek = label.getConfidence();
+
         }
+
+
+
     }
 
+    private void cekdatabase (final String makanan){
+
+        DocumentReference docRef = db.collection("food").document(makanan);
+        final String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DocumentReference dt = db.collection("users").document(uid);
+
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        final double calorie = document.getDouble("calorie");
+                        db.runTransaction(new Transaction.Function<Double>() {
+                            @Override
+                            public Double apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
+
+                                DocumentSnapshot dashboard = transaction.get(dt);
+
+                                double caloriedaily = dashboard.getDouble("consumedCalorie")+calorie;
+
+                                transaction.update(dt, "consumedCalorie", caloriedaily);
+
+                                return caloriedaily;
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<Double>() {
+                            @Override
+                            public void onSuccess(Double result) {
+                                Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
+                                Toast.makeText(getContext(),
+                                        "Kalori sebesar"+calorie+" berhasil ditambahkan ke dailyCalorie anda: ", Toast.LENGTH_SHORT).show();
+                                Intent scanDone = new Intent(getActivity(), ScanDoneActivity.class);
+                                //intent.putExtra("model", model);
+                                scanDone.putExtra("foodName", makanan);
+                                scanDone.putExtra("calorie",calorie);
+                                startActivity(scanDone);
+
+
+                            }
+                        });
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+
+
+
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
+
+    }
+
+    private void showLoading(Boolean state) {
+        if (state) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        } else {
+            mProgressBar.setVisibility(View.GONE);
+        }
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -179,6 +284,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             case R.id.btn_galeri:
                 checkStoragePermission(RC_STORAGE_PERMS2);
                 break;
+
         }
     }
 }

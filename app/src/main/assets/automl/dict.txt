@@ -1,10 +1,10 @@
-bsteak
+steak
 hamburger
 hotdog
-nasgor
-nasi
+friedRice
+whiteRice
 pizza
-sandwich
+chickenSandwich
 sausage
-opoiki
+spaghetti
 toast
