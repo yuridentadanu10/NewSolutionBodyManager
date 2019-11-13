@@ -171,7 +171,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             public void onSuccess(List<FirebaseVisionImageLabel> labels) {
                 extractLabel(labels);
                 Log.d(TAG, "onSuccess:JAAAAAAAAAAAAAAAAANGKTIK  "+ makanan);
-                if(deteksijelek>0.6) {
+                if(deteksijelek>0.7) {
 
                     cekdatabase(makanan);
                     showLoading(false);
@@ -201,12 +201,11 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             mTextView.setText(label.getConfidence() + "\n\n");
             Log.d(TAG, "labels "+labels+" label ===="+label.getText() +" TEXTVIEW ==="+mTextView );
 
+
             makanan = label.getText();
             deteksijelek = label.getConfidence();
 
         }
-
-
 
     }
 

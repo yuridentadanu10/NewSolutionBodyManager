@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ScanDoneActivity extends AppCompatActivity implements View.OnClickListener{
-Button btnConfirm;
+    Button btnConfirm;
     TextView foodName,calorieInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ Button btnConfirm;
         Intent i=getIntent();
         final String food=i.getExtras().getString("foodName");
         final Long calorie = i.getExtras().getLong("calorie");
+
+        
         foodName = findViewById(R.id.tv_food_name);
         foodName.setText(food);
         calorieInfo = findViewById(R.id.tv_calorie);

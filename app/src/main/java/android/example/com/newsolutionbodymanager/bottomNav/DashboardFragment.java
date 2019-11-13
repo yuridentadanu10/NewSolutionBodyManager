@@ -7,6 +7,7 @@ import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
 import android.example.com.newsolutionbodymanager.LoginAndFriend.RegisterActivity;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.sportActivity.SportActivity;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -82,6 +83,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
         btn_addBreakfast.setOnClickListener(this);
         btn_addLunch.setOnClickListener(this);
         btn_addDinner.setOnClickListener(this);
+        btnwalking.setOnClickListener(this);
 
     }
 
@@ -161,6 +163,10 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
             case R.id.btn_add_lunch:
                 startActivity(new Intent(getActivity(), FoodConsumtion.class));
                 break;
+            case R.id.btn_walking:
+                startActivity(new Intent(getActivity(), SportActivity.class));
+                break;
+
 
         }
     }
