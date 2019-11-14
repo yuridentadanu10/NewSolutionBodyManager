@@ -25,6 +25,8 @@ LinearLayout walking;
         switch (view.getId()) {
             case R.id.linear_Walking:
                 Intent kalo = new Intent(ExercisesActivity.this,SportActivity.class );
+                String walking ="walking";
+                kalo.putExtra("olahraga",walking);
                 startActivity(kalo);
 
                 break;

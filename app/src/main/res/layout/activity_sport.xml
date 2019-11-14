@@ -26,6 +26,7 @@
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/calorie_olahraga"
                 android:layout_height="wrap_content"
                 android:text="@string/_255_cal"
                 android:textSize="15sp"
@@ -40,6 +41,7 @@
                 tools:ignore="NestedWeights" />
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/menit_olahraga"
                 android:layout_height="wrap_content"
                 android:text="@string/_30_minute"
                 android:textSize="15sp"
@@ -82,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="00"
+                android:id="@+id/duration1"
                 android:gravity="center"
                 android:textColor="#373737" />
 
@@ -94,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="30"
+                android:id="@+id/duration2"
                 android:gravity="center"
                 android:textColor="#373737"
                 android:layout_weight="1"/>
@@ -106,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00"
+                android:id="@+id/duration3"
                 android:gravity="center"
                 android:textColor="#373737"
                 android:layout_weight="1"/>
@@ -128,6 +133,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"/>
         <LinearLayout
+            android:id="@+id/btn_linear_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -140,6 +146,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/tv_distance"
                 android:text="@string/_4_0_km"
                 android:gravity="center"
                 android:textColor="#373737" />
@@ -153,6 +160,7 @@
         android:layout_marginTop="335dp">
         <Button
             android:layout_width="match_parent"
+            android:id="@+id/btn_cancel_sport"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@drawable/radius_ooo"
@@ -163,7 +171,7 @@
             android:textColor="#76C33A"
             android:textSize="18sp" />
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_save_sport"
             android:layout_width="match_parent"
             android:layout_gravity="center"
             android:layout_height="wrap_content"

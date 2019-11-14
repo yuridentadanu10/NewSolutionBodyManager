@@ -128,7 +128,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                             DocumentSnapshot snapshot = transaction.get(userRef);
                             double kaloriburned = snapshot.getDouble("burnedCalorie");
                             double kalorikonsum = snapshot.getDouble("consumedCalorie") ;
-                            double total =  kaloriburned+kalorikonsum;
+                            double total =  kalorikonsum-kaloriburned;
 
                                 transaction.update(userRef, "dailyCalorie", total);
                                 return total;

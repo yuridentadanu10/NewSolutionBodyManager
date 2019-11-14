@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.FoodConsumtion.FoodConsumtion;
+import android.example.com.newsolutionbodymanager.LoginAndFriend.User;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
 import android.example.com.newsolutionbodymanager.bottomNav.DashboardFragment;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,10 +31,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DetailActivityFood extends AppCompatActivity implements View.OnClickListener{
 TextView foodName,calorieInfo,carbsInfo,proteinInfo,fatInfo;
 Button btnAddDetail;
 ImageView imgFood;
+    String img;
     private static final String TAG = "DetailFoodAct";
 
 private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -79,7 +85,7 @@ calorieInfo = findViewById(R.id.tv_calorie_info);
                         Long carbs = document.getLong("carbs");
                         Long protein = document.getLong("protein");
                         Long fat = document.getLong("fat");
-                        String img = document.getString("imageUrl");
+                         img = document.getString("imageUrl");
 
                         calorieInfo.setText( String.valueOf(calorie)+" Calories");
                         carbsInfo.setText(String.valueOf(carbs)+"% Carbohidrate");
@@ -135,6 +141,7 @@ calorieInfo = findViewById(R.id.tv_calorie_info);
                                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
                                 Toast.makeText(DetailActivityFood.this,
                                         "Kalori sebesar"+calorie+" berhasil ditambahkan ke dailyCalorie anda: ", Toast.LENGTH_SHORT).show();
+                                writeHistory(calorie,food,img);
 
                             }
                         });
@@ -151,6 +158,30 @@ calorieInfo = findViewById(R.id.tv_calorie_info);
 
     }
 
+private void writeHistory(double calorie,String nama,String imgUrl){
+
+    Map<String, Object> history = new HashMap<>();
+    history.put("name", nama);
+    history.put("calorie", calorie);
+    history.put("imageUrl",imgUrl);
+    String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+    db.collection("users")
+            .document(uid).collection("historiMakanan").document()
+            .set(history)
+            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "DocumentSnapshot successfully written!");
+                }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "Error writing document", e);
+                }
+            });
+
+}
 
     @Override
     public void onClick(View view) {
