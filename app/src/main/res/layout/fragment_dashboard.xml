@@ -59,12 +59,13 @@
                     android:textSize="10sp" />
 
                 <TextView
+                    android:fontFamily="@font/segoe_ui_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Calorie Goal"
                     android:textColor="#fff"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
 
                     />
 
@@ -77,10 +78,11 @@
                     <TextView
                         android:id="@+id/tv_daily_calorie"
                         android:layout_width="wrap_content"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:layout_height="wrap_content"
                         android:text="580"
                         android:textColor="#fff"
-                        android:textSize="40sp"
+                        android:textSize="36sp"
 
                         />
 
@@ -89,8 +91,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:text="/"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:textColor="#fff"
-                        android:textSize="40sp"
+                        android:textSize="36sp"
 
                         />
 
@@ -101,8 +104,9 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:text="2200"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:textColor="#fff"
-                        android:textSize="40sp"
+                        android:textSize="36sp"
 
                         />
                 </LinearLayout>
@@ -112,16 +116,15 @@
                 android:layout_marginTop="-3dp"
                 android:layout_width="fill_parent"
                 android:id="@+id/linear_monitoring"
+                android:paddingRight="1.5dp"
+                android:paddingLeft="1.5dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radius_4_colum_calorie"
                 android:orientation="horizontal"
-                android:layout_below="@+id/linear_calorie_goal"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp">
+                android:layout_below="@+id/linear_calorie_goal">
                 <LinearLayout
                     android:layout_width="152dp"
+                    android:layout_marginRight="-1dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1"
@@ -140,6 +143,7 @@
                         android:id="@+id/tv_consumed_calori"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:text="@string/_630_kcal"
                         android:textColor="#76C33A"
                         android:textSize="20sp"
@@ -166,6 +170,7 @@
                         android:id="@+id/tv_calorie_burned"
                         android:layout_height="wrap_content"
                         android:text="@string/_250_kcal"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:textColor="#76C33A"
                         android:textSize="20sp"
                         />
@@ -175,19 +180,21 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:id="@+id/linear_monitoring2"
+                android:layout_marginTop="-1dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/radius_4_colum_calorie"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="220dp"
-                android:paddingBottom="2dp"
-                android:paddingLeft="2dp"
-                android:paddingRight="2dp">
+                android:layout_below="@+id/linear_monitoring"
+                android:paddingRight="1.5dp"
+                android:paddingLeft="1.5dp"
+       >
                 <LinearLayout
                     android:layout_width="152dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:paddingStart="10dp"
+                    android:layout_marginRight="-1dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:background="@drawable/radius_inside_4colum_calorie">
@@ -202,6 +209,7 @@
                         android:layout_width="wrap_content"
                         android:id="@+id/tv_current_weight"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:text="@string/_58_kg"
                         android:textColor="#76C33A"
                         android:textSize="20sp"
@@ -228,6 +236,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/_60_kg"
                         android:id="@+id/tv_weight_goal"
+                        android:fontFamily="@font/segoe_ui_bold"
                         android:textColor="#76C33A"
                         android:textSize="20sp"
                         />
@@ -273,6 +282,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/segoe_ui_bold"
                     android:paddingTop="8dp"
                     android:text="@string/calories_burned_today"
                     android:textColor="#76C33A"
@@ -428,6 +438,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/food"
+                    android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="15sp"
                     android:textColor="#76C33A"
                     android:layout_gravity="center"

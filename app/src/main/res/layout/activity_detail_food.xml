@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:text="@string/_252_calories"
             android:textSize="19sp"
+
             android:textColor="#000"
             android:layout_gravity="center"/>
         <LinearLayout

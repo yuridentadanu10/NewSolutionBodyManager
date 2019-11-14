@@ -1,200 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="UselessParent"
-        android:id="@+id/layout_profile">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#BFBFBF"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="370dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/edit"
-            android:textColor="#BFBFBF"
-            android:textSize="14sp" />
-
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="11dp"
-            android:src="@drawable/profile" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/john_doe"
-            android:textColor="#000"
-            android:textSize="22sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/jan_01_1999"
-            android:textColor="#000"
-            android:textSize="14sp" />
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:layout_marginBottom="18dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="72dp"
-                android:layout_marginTop="6dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textSize="14dp"
-                android:layout_marginBottom="6dp"
-                android:text="@string/female"
-                android:background="@drawable/radius_profile"/>
+            android:orientation="vertical"
+            android:id="@+id/layout_profile">
+
 
             <TextView
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="6dp"
-                android:textSize="14dp"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/radius_profile"
-                android:text="@string/_166_cm" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/edit"
+                android:textColor="#BFBFBF"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="11dp"
+                android:src="@drawable/profile" />
 
             <TextView
-                android:layout_width="90dp"
-                android:layout_height="30dp"
-                android:textSize="14dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="6dp"
-                android:layout_marginRight="72dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:background="@drawable/radius_profile"
-                android:text="@string/_58_kg" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/john_doe"
+                android:textColor="#000"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/jan_01_1999"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginBottom="18dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="72dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="@string/female"
+                    android:background="@drawable/radius_profile"/>
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="6dp"
+                    android:textSize="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/radius_profile"
+                    android:text="@string/_166_cm" />
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:textSize="14dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="72dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/radius_profile"
+                    android:text="@string/_58_kg" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BFBFBF" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#BFBFBF" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/today_s_calorie_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/layout_profile"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-        <TextView
+        <LinearLayout
+            android:id="@+id/today_s_calorie_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#373737"
-            android:text="@string/today_s_calorie_count"
-            android:layout_gravity="center"
-            android:textSize="15sp"/>
-        <ProgressBar
-            android:layout_marginTop="16dp"
-            android:id="@+id/determinateBar"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="350dp"
-            android:progressDrawable="@drawable/custom_progress_bar"
-            android:layout_height="20dp"
-            android:max="100"
-            android:layout_gravity="center"
-            android:background="#00381212"
-            android:progress="10"
-            tools:visibility="visible" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:id="@+id/calories"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/today_s_calorie_count"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#373737"
-            android:text="@string/_580"
-            android:textSize="20sp"
-            android:layout_marginEnd="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#373737"
-            android:text="@string/slice"
-            android:textSize="20sp"
-            android:layout_marginEnd="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#373737"
-            android:text="@string/_2200"
-            android:textSize="20sp"
-            android:layout_marginEnd="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#373737"
-            android:text="@string/calories"
-            android:textSize="20sp"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calories"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:orientation="vertical">
-        <View
-            android:layout_width="160dp"
-            android:layout_height="1dp"
-            android:background="#BFBFBF"
-            android:layout_marginBottom="22dp"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#373737"
-            android:text="@string/target_weight"
-            android:layout_gravity="center"
-            android:textSize="15sp"/>
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/layout_profile"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#373737"
+                android:text="@string/today_s_calorie_count"
+                android:layout_gravity="center"
+                android:textSize="15sp"/>
+            <ProgressBar
+                android:layout_marginTop="16dp"
+                android:id="@+id/determinateBar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="350dp"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                android:layout_height="20dp"
+                android:max="100"
+                android:layout_gravity="center"
+                android:background="#00381212"
+                android:progress="10"
+                tools:visibility="visible" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
+            android:id="@+id/calories"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/today_s_calorie_count"
             android:layout_marginTop="8dp"
             android:orientation="horizontal">
             <TextView
@@ -202,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#373737"
-                android:text="@string/_65"
+                android:text="@string/_580"
                 android:textSize="20sp"
                 android:layout_marginEnd="5dp"/>
             <TextView
@@ -210,26 +147,85 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textColor="#373737"
-                android:text="@string/kg"
+                android:text="@string/slice"
+                android:textSize="20sp"
+                android:layout_marginEnd="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#373737"
+                android:text="@string/_2200"
+                android:textSize="20sp"
+                android:layout_marginEnd="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#373737"
+                android:text="@string/calories"
                 android:textSize="20sp"/>
         </LinearLayout>
-        <View
-            android:layout_width="160dp"
-            android:layout_height="1dp"
-            android:background="#BFBFBF"
-            android:layout_gravity="center"
-            android:layout_marginTop="22dp"/>
-        <Button
-            android:id="@+id/btnChangePlans"
-            android:layout_width="350dp"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="27dp"
-            android:background="@drawable/radius_burned_button"
-            android:text="@string/changes_plans"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_below="@id/calories"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22dp"
+            android:orientation="vertical">
+            <View
+                android:layout_width="160dp"
+                android:layout_height="1dp"
+                android:background="#BFBFBF"
+                android:layout_marginBottom="22dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#373737"
+                android:text="@string/target_weight"
+                android:layout_gravity="center"
+                android:textSize="15sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#373737"
+                    android:text="@string/_65"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#373737"
+                    android:text="@string/kg"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="160dp"
+                android:layout_height="1dp"
+                android:background="#BFBFBF"
+                android:layout_gravity="center"
+                android:layout_marginTop="22dp"/>
+            <Button
+                android:id="@+id/btnChangePlans"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_margin="27dp"
+                android:background="@drawable/radius_burned_button"
+                android:text="@string/changes_plans"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
 </ScrollView>

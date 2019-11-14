@@ -14,18 +14,17 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class SportActivity extends AppCompatActivity {
 
-    private TextView txtName;
-    private Button btnOpenDialog,btnCancel,btnConfirm;
-
+    private Button btnCancel,btnConfirm;
+LinearLayout btnOpenDialog;
     private Dialog customDialog;
     private EditText txtInputName;
-    private Button btnInsertName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +101,6 @@ public class SportActivity extends AppCompatActivity {
 
 
     private void initViewComponents(){
-        txtName = findViewById(R.id.txtName);
         btnOpenDialog = findViewById(R.id.btnOpenDialog);
         btnOpenDialog.setOnClickListener(new View.OnClickListener() {
             @Override

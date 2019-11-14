@@ -57,6 +57,7 @@
             android:layout_marginTop="12dp"/>
         <Button
             android:layout_width="match_parent"
+            android:id="@+id/btn_confirm"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:background="@drawable/radius_burned_button"

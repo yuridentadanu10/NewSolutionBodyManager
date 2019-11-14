@@ -55,7 +55,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
  * A simple {@link Fragment} subclass.
  */
 public class ScannerFragment extends BaseFragment implements View.OnClickListener{
-    private ProgressBar mProgressBar;
+
     private ImageView mImageView;
     private TextView mTextView;
     private static final String TAG = "Image Scanner";
@@ -65,8 +65,9 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button btnPhoto, btnGallery,btnScanFood;
     public Long calorie;
-    public String makanan ;
-    public Float deteksijelek;
+
+    public String  makanan;
+    public   float deteksijelek =0;
 
     public ScannerFragment() {
         // Required empty public constructor
@@ -88,7 +89,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
         mTextView = view.findViewById(R.id.text_view);
         btnGallery = view.findViewById(R.id.btn_galeri);
         btnPhoto = view.findViewById(R.id.btn_foto);
-        mProgressBar = view.findViewById(R.id.progressBar);
+
         
 
         FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
@@ -171,13 +172,12 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             public void onSuccess(List<FirebaseVisionImageLabel> labels) {
                 extractLabel(labels);
                 Log.d(TAG, "onSuccess:JAAAAAAAAAAAAAAAAANGKTIK  "+ makanan);
-                if(deteksijelek>0.7) {
-
+                if(deteksijelek>0.5) {
                     cekdatabase(makanan);
-                    showLoading(false);
+
                 }
                 else{
-                    showLoading(false);
+
                     Toast.makeText(getContext(),
                             "Scan gambar gagal karena gambar yang anda ambil kurang bagus! Silahkan scan ulang ya :)  ", Toast.LENGTH_SHORT).show();
                 }
@@ -195,6 +195,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
 
 
     private void extractLabel(List<FirebaseVisionImageLabel> labels) {
+         float temp = 0;
         for (FirebaseVisionImageLabel label : labels) {
 
             mTextView.setText(label.getText() + "\n");
@@ -202,8 +203,15 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             Log.d(TAG, "labels "+labels+" label ===="+label.getText() +" TEXTVIEW ==="+mTextView );
 
 
-            makanan = label.getText();
-            deteksijelek = label.getConfidence();
+          String  makananSementara = label.getText();
+          float  deteksijelekSementara = label.getConfidence();
+
+
+            if(deteksijelekSementara>temp){
+                       makanan = makananSementara;
+                       deteksijelek = deteksijelekSementara;
+                       temp =  deteksijelekSementara;
+            }
 
         }
 
@@ -267,13 +275,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
 
     }
 
-    private void showLoading(Boolean state) {
-        if (state) {
-            mProgressBar.setVisibility(View.VISIBLE);
-        } else {
-            mProgressBar.setVisibility(View.GONE);
-        }
-    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

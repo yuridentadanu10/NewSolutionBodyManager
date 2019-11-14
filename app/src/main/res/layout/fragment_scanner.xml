@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_default">
+   >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,15 +11,42 @@
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
 
+
+        <Button
+            android:id="@+id/btn_galeri"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:background="@drawable/radius_burned_button"
+            android:text="@string/ScanFood"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_marginTop="40dp" />
+
+
+
         <ImageView
             android:id="@+id/image_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
             android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/no_image" />
+            android:src="@drawable/placholder_scanner"
+            android:layout_marginVertical="35dp"/>
 
-
+        <Button
+            android:id="@+id/btn_foto"
+            android:layout_width="200dp"
+            android:layout_gravity="center"
+            android:layout_height="50dp"
+            android:background="@drawable/radius_burned_button"
+            android:text="@string/open_from_gallery"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+           />
 
         <TextView
             android:id="@+id/text_view"
@@ -29,25 +56,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_foto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-        <Button
-            android:id="@+id/btn_galeri"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
     </LinearLayout>
 
 </ScrollView>

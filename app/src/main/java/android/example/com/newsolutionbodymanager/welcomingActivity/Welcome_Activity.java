@@ -48,13 +48,12 @@ public class Welcome_Activity extends AppCompatActivity {
 
         setContentView(R.layout.activity_welcome);
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        viewPager =  findViewById(R.id.view_pager);
+        dotsLayout = findViewById(R.id.layoutDots);
+        btnNext =  findViewById(R.id.btn_next);
 
 
-        // layout xml slide 1 sampai 4
-        // add few more layouts if you want
+
         layouts = new int[]{
                 R.layout.welcome_slide1,
                 R.layout.welcome_slide2,

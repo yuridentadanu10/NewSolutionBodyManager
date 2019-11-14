@@ -7,6 +7,7 @@ import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
 import android.example.com.newsolutionbodymanager.LoginAndFriend.RegisterActivity;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.sportActivity.ExercisesActivity;
 import android.example.com.newsolutionbodymanager.sportActivity.SportActivity;
 import android.media.Image;
 import android.os.Bundle;
@@ -111,6 +112,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                     Long calorieBurned = snapshot.getLong("burnedCalorie");
                     Long currentWeight = snapshot.getLong("weight");
                     Long weightGoal = snapshot.getLong("weightGoal");
+                    Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
 
 
                     tvDailyCalorie.setText(String.valueOf(dailyCalorie));
@@ -118,6 +120,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                     tv_caloriBurn.setText(String.valueOf(calorieBurned));
                     tvCurrentWeight.setText(String.valueOf(currentWeight));
                     tvWeightGoal.setText(String.valueOf(weightGoal));
+                    tvCalorieGoal.setText(String.valueOf(dailyGoal));
 
                     db.runTransaction(new Transaction.Function<Double>() {
                         @Override
@@ -164,7 +167,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                 startActivity(new Intent(getActivity(), FoodConsumtion.class));
                 break;
             case R.id.btn_walking:
-                startActivity(new Intent(getActivity(), SportActivity.class));
+                startActivity(new Intent(getActivity(), ExercisesActivity.class));
                 break;
 
 

@@ -80,6 +80,14 @@
     <string name="food_scanned">Food Scanned</string>
     <string name="female">female</string>
     <string name="cancel">Cancel</string>
+    <string name="enter_data">Enter Data</string>
+    <string name="_255_cal">255 Cal</string>
+    <string name="_30_minute">30 Minute</string>
+    <string name="duration">Duration</string>
+    <string name="_4_0_km">4.0 km</string>
+    <string name="save">Save</string>
+    <string name="distance">Distance</string>
+    <string name="open_from_gallery">Open From Gallery</string>
 
     <string-array name="kelamin">
         <item>Male</item>

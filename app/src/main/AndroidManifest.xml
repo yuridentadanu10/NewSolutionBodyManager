@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".sportActivity.SportActivity"></activity>
+        <activity android:name=".sportActivity.ExercisesActivity"></activity>
+        <activity android:name=".sportActivity.SportActivity" />
         <activity android:name=".imgProcessing.ScanDoneActivity" />
         <activity android:name=".recyclerView.DetailActivityFood" />
         <activity android:name=".recyclerView.ListFoodActivity" />

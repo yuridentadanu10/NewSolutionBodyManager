@@ -29,7 +29,6 @@ import static android.graphics.BitmapFactory.decodeFile;
 import static android.graphics.BitmapFactory.decodeStream;
 
 public class MyHelper {
-	private static Dialog mDialog;
 
 	public static String getPath(Context context, Uri uri) {
 		String path = "";
@@ -57,23 +56,6 @@ public class MyHelper {
 		return file;
 	}
 
-	public static void showDialog(Context context) {
-		mDialog = new Dialog(context, R.style.NewDialog);
-		mDialog.addContentView(
-				new ProgressBar(context),
-				new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-		);
-		mDialog.setCancelable(false);
-		if (!mDialog.isShowing()) {
-			mDialog.show();
-		}
-	}
-
-	public static void dismissDialog() {
-		if (mDialog != null && mDialog.isShowing()) {
-			mDialog.dismiss();
-		}
-	}
 
 	public static void needPermission(final Activity activity, final int requestCode, int msg) {
 		AlertDialog.Builder alert = new AlertDialog.Builder(activity);
