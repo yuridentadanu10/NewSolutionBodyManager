@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -98,6 +99,7 @@
                 android:background="#BFBFBF" />
         </LinearLayout>
 
+
         <LinearLayout
             android:id="@+id/today_s_calorie_count"
             android:layout_width="wrap_content"
@@ -113,63 +115,55 @@
                 android:text="@string/today_s_calorie_count"
                 android:layout_gravity="center"
                 android:textSize="15sp"/>
-            <ProgressBar
-                android:layout_marginTop="16dp"
-                android:id="@+id/determinateBar"
-                style="@android:style/Widget.ProgressBar.Horizontal"
-                android:layout_width="350dp"
-                android:progressDrawable="@drawable/custom_progress_bar"
-                android:layout_height="20dp"
-                android:max="100"
-                android:layout_gravity="center"
-                android:background="#00381212"
-                android:progress="10"
-                tools:visibility="visible" />
+
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:id="@+id/calories"
-            android:layout_height="wrap_content"
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/custom_progressbar"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/today_s_calorie_count"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
+            app:cpb_background_progressbar_color="#b6bbd8"
+            app:cpb_background_progressbar_width="20dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#3f51b5"
+            app:cpb_progressbar_width="20dp"
+            app:cpb_round_border="true"/>
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:id="@+id/calories"
+            android:layout_height="180dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_below="@id/today_s_calorie_count"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+           android:id="@+id/tv_progress_bar"
                 android:textColor="#373737"
-                android:text="@string/_580"
+                android:gravity="center"
+                android:text="580 / 2200"
                 android:textSize="20sp"
-                android:layout_marginEnd="5dp"/>
+              />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="#373737"
-                android:text="@string/slice"
+                android:text="Calories"
                 android:textSize="20sp"
-                android:layout_marginEnd="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#373737"
-                android:text="@string/_2200"
-                android:textSize="20sp"
-                android:layout_marginEnd="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#373737"
-                android:text="@string/calories"
-                android:textSize="20sp"/>
+               />
+
+
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/linear_change_plans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/calories"
+            android:layout_below="@id/custom_progressbar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
             android:orientation="vertical">
@@ -225,6 +219,24 @@
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear_change_plans"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_history"
+            android:layout_width="match_parent"
+            tools:listitem="@layout/item_history"
+            android:orientation="horizontal"
+            android:layout_height="match_parent"
+
+            />
+
         </LinearLayout>
     </RelativeLayout>
 

@@ -59,6 +59,7 @@ public class ListFoodActivity extends AppCompatActivity {
 
         adapter = new FoodAdapter(options);
 
+
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="123dp"
+    android:layout_height="140dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_below="@id/img_food"
+        android:textSize="14sp"
+        tools:text="@string/titleMovie" />
+    <TextView
+        android:id="@+id/tv_calorie_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tv_food_name"
+        android:layout_marginStart="15dp"
+
+        android:textSize="14sp"
+        tools:text="@string/_250_cal" />
+
+
+    <ImageView
+        android:id="@+id/img_food"
+        android:layout_width="70dp"
+        android:layout_height="81dp"
+        android:background="@drawable/radius_corner"
+        android:scaleType="fitCenter"
+        android:src="@drawable/makanan1"/>
+
+
+</RelativeLayout>
