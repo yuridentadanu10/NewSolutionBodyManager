@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.bottomNav.tes123;
+import android.example.com.newsolutionbodymanager.bottomNav.tes321;
 import android.example.com.newsolutionbodymanager.recyclerView.ListFoodActivity;
 import android.example.com.newsolutionbodymanager.welcomingActivity.FirstTimeSetupActivity;
 import android.os.Bundle;
@@ -113,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 LoginUser();
                 break;
             case R.id.tv_dontHave:
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, tes321.class));
                 break;
         }
     }

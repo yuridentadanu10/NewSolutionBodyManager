@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8EBE2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/linear_bunder"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:background="@drawable/radius_toolbar">
+
+
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_below="@+id/logo"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/segoe_ui"
+            android:layout_marginBottom="25dp"
+            android:layout_height="wrap_content"
+            android:text="Friday Nov 15,2019"
+            android:layout_centerHorizontal="true"/>
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/custom_progressbar"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:cpb_progress="20"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tanggal"
+            app:cpb_background_progressbar_color="#b6bbd8"
+            app:cpb_background_progressbar_width="10dp"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="#ffff"
+            app:cpb_progressbar_width="10dp"
+            app:cpb_round_border="true"/>
+        <LinearLayout
+        android:layout_width="180dp"
+        android:id="@+id/calories"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_below="@id/tanggal"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_progress_bar"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:gravity="center"
+            android:text="580 / 2200"
+            android:textSize="28sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/segoe_ui"
+            android:textColor="#FFFFFF"
+            android:text="Calories"
+            android:textSize="20sp"
+            />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custom_progressbar"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="20dp"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/Dashboard"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:gravity="center"
+                android:text="580 cal"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:textColor="#FFFFFF"
+                android:text="40 cal"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:textColor="#FFFFFF"
+                android:text="40 cal"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:layout_marginStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:textColor="#FFFFFF"
+                android:text="40 cal"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#FFFFFF"
+                    android:fontFamily="@font/segoe_ui"
+                    android:gravity="center"
+                    android:text="Consumed"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textColor="#FFFFFF"
+                    android:text="Burned"
+                    android:textSize="16sp"
+                    />
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textColor="#FFFFFF"
+                    android:text="Weight"
+                    android:textSize="16sp"
+                    />
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:fontFamily="@font/segoe_ui"
+                    android:textColor="#FFFFFF"
+                    android:text="Goal"
+                    android:textSize="16sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:id="@+id/linear_breakfast"
+        android:layout_height="70dp"
+        android:background="@drawable/linear_menu_new"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_below="@id/linear_bunder"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:id="@+id/linear_lunch"
+        android:layout_height="70dp"
+        android:background="@drawable/linear_menu_new"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_below="@id/linear_breakfast"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:id="@+id/linear_dinner"
+        android:layout_height="70dp"
+        android:background="@drawable/linear_menu_new"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="13dp"
+        android:layout_below="@id/linear_lunch"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
