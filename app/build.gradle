@@ -6,7 +6,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "android.example.com.newsolutionbodymanager"
-        minSdkVersion 21
+        minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -48,6 +48,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.github.medyo:fancybuttons:1.9.1'
+    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.1.0'
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
+    implementation 'com.github.dmytrodanylyk.shadow-layout:library:1.0.3'
+    implementation 'me.gujun.android.taggroup:library:1.4@aar'
+    implementation 'com.github.ceryle:FitGridView:v1.0.5'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {

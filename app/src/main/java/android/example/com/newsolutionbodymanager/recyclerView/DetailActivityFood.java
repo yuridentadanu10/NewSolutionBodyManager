@@ -48,7 +48,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_food);
-calorieInfo = findViewById(R.id.tv_calorie_info);
+        calorieInfo = findViewById(R.id.tv_calorie_info);
         carbsInfo = findViewById(R.id.carbo_info);
         proteinInfo = findViewById(R.id.tv_protein_info);
         fatInfo = findViewById(R.id.tv_fat_info);

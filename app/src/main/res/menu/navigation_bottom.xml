@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:title="@string/Menu"
         android:id="@+id/dashboard"
         android:iconTintMode="src_atop"
-        android:icon="@drawable/btmmenu"/>
+        android:icon="@drawable/btmmenu"
+        app:cnb_iconColor="@color/home"/>
     <item
         android:title="@string/ScanFood"
         android:id="@+id/scanner"
         android:iconTintMode="src_atop"
-        android:icon="@drawable/btmimgprocees"/>
+        android:icon="@drawable/btmimgprocees"
+        app:cnb_iconColor="@color/home"/>
     <item
         android:title="@string/Profile"
         android:id="@+id/profile"
         android:iconTintMode="src_atop"
-        android:icon="@drawable/btm_profile"/>
+        android:icon="@drawable/btm_profile"
+        app:cnb_iconColor="@color/home"/>
+
 
 
 </menu>

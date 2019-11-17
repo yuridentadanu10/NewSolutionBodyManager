@@ -14,14 +14,21 @@
         android:layout_above="@id/navbottom">
 
     </FrameLayout>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_above="@id/navbottom"
+        android:background="@drawable/shadow"/>
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/navbottom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/navigation_bottom"
-        app:itemBackground="@color/cardview_light_background">
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemBackground="@color/cardview_light_background"
+        app:cnb_menuResource="@menu/navigation_bottom" />
+
 
 
 

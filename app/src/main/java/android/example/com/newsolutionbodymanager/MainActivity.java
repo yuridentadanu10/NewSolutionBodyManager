@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView mBottomNav=findViewById(R.id.navbottom);
-        mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        ChipNavigationBar mBottomNav=findViewById(R.id.navbottom);
+        mBottomNav.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener(){
 
 
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+            public void onItemSelected(int i) {
+                switch (i) {
                     case R.id.dashboard:
                         pageContent = new DashboardFragment();
                         break;
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.Layout_frame, pageContent).commit();
-                return true;
+
             }
+
         });
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.Layout_frame, pageContent).commit();

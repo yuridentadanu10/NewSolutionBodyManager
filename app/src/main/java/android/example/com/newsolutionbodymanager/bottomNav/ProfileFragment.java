@@ -47,14 +47,11 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
  */
 public class ProfileFragment extends Fragment {
 
-    private StorageReference mStorageRef;
     private static final String TAG = "ProfileDashboard";
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
-    TextView tv_progress;
     private HistoryFoodAdapter adapter;
     FirebaseStorage storage = FirebaseStorage.getInstance();
-    CircularProgressBar circularProgressBar;
     Button btnchangeplan;
 
     public ProfileFragment() {
@@ -66,7 +63,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.new_fragment_profile, container, false);
     }
 
     @Override
@@ -76,18 +73,12 @@ public class ProfileFragment extends Fragment {
     btnchangeplan.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-mAuth.getInstance().signOut();
+            mAuth.getInstance().signOut();
             Intent login = new Intent(getActivity(), LoginActivity.class);
             startActivity(login);
 
         }
     });
-    tv_progress = view.findViewById(R.id.tv_progress_bar);
-         circularProgressBar = view.findViewById(R.id.custom_progressbar);
-
-
-
-
 
         setUpRecyclerView(view);
     }
@@ -110,9 +101,7 @@ mAuth.getInstance().signOut();
 
                     Long dailyCalorie = snapshot.getLong("dailyCalorie");
                     Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
-                    circularProgressBar.setProgress(dailyCalorie);
-                    circularProgressBar.setProgressMax(dailyGoal);
-                    tv_progress.setText(String.valueOf(dailyCalorie)+" / "+String.valueOf(dailyGoal));
+
                 } else {
                     Log.d(TAG, "Current data: null");
                 }
@@ -156,11 +145,12 @@ mAuth.getInstance().signOut();
         super.onStart();
         adapter.startListening();
         readDatabase();
+
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        adapter.stopListening();
+        
     }
 }
