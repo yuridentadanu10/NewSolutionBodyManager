@@ -35,14 +35,18 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
+import mehdi.sakout.fancybuttons.FancyButton;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener{
-private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie,tvCalorieGoal;
-private ImageView btnwalking,btn_running,btnCycling,btnhiking;
-private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
+private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie_goal;
+private FancyButton btnwalking;
+private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
+    CircularProgressBar circularProgressBar;
 
     private static final String TAG = "Dashboard";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -58,7 +62,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
+        return inflater.inflate(R.layout.new_fragment_dashboard, container, false);
     }
 
     @Override
@@ -70,13 +74,9 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
         btnEdit = view.findViewById(R.id.btn_edit_data_goal);
         tvCalorieConsumed = view.findViewById(R.id.tv_consumed_calori);
         tvCurrentWeight = view.findViewById(R.id.tv_current_weight);
-        tvCalorieGoal = view.findViewById(R.id.tv_calorie_goal);
         tvWeightGoal= view.findViewById(R.id.tv_weight_goal);
-        tvDailyCalorie= view.findViewById(R.id.tv_daily_calorie);
+        tvDailyCalorie_goal= view.findViewById(R.id.tv_daily_calorie);
         btnwalking = view.findViewById(R.id.btn_walking);
-        btn_running  = view.findViewById(R.id.btn_running);
-        btnCycling = view.findViewById(R.id.btn_cycling);
-        btnhiking = view.findViewById(R.id.btnhiking);
         btn_addBreakfast = view.findViewById(R.id.btn_add_breakfast);
         btn_addLunch = view.findViewById(R.id.btn_add_lunch);
         btn_addDinner= view.findViewById(R.id.btn_add_dinner);
@@ -85,7 +85,7 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
         btn_addLunch.setOnClickListener(this);
         btn_addDinner.setOnClickListener(this);
         btnwalking.setOnClickListener(this);
-
+        circularProgressBar = view.findViewById(R.id.custom_progressbar);
     }
 
 
@@ -114,13 +114,14 @@ private TextView btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                     Long weightGoal = snapshot.getLong("weightGoal");
                     Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
 
+                    circularProgressBar.setProgress(dailyCalorie);
+                    circularProgressBar.setProgressMax(dailyGoal);
+                    tvDailyCalorie_goal.setText(String.valueOf(dailyCalorie)+" / "+String.valueOf(dailyGoal));
+                    tvCalorieConsumed.setText(String.valueOf(calorieConsumed)+" cal");
+                    tv_caloriBurn.setText(String.valueOf(calorieBurned)+" cal");
+                    tvCurrentWeight.setText(String.valueOf(currentWeight)+" kg");
+                    tvWeightGoal.setText(String.valueOf(weightGoal)+" kg");
 
-                    tvDailyCalorie.setText(String.valueOf(dailyCalorie));
-                    tvCalorieConsumed.setText(String.valueOf(calorieConsumed));
-                    tv_caloriBurn.setText(String.valueOf(calorieBurned));
-                    tvCurrentWeight.setText(String.valueOf(currentWeight));
-                    tvWeightGoal.setText(String.valueOf(weightGoal));
-                    tvCalorieGoal.setText(String.valueOf(dailyGoal));
 
                     db.runTransaction(new Transaction.Function<Double>() {
                         @Override

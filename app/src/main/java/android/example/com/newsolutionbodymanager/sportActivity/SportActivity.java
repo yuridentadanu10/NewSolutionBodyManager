@@ -232,9 +232,18 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
             public Double apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
                 DocumentReference exampleNoteRef = db.collection("users").document(uid);
                 DocumentSnapshot exampleNoteSnapshot = transaction.get(exampleNoteRef);
-                Double bakarkalori = exampleNoteSnapshot.getDouble("burnedCalorie")+calorieBurned;
-                Log.d(TAG, "apply: "+calorieBurned);
+                Double bakarkalori = null;
+                
+                if(calorieBurned<2000) {
+                    bakarkalori = exampleNoteSnapshot.getDouble("burnedCalorie")+calorieBurned;
+                    Log.d(TAG, "apply: " + calorieBurned);
                     transaction.update(exampleNoteRef, "burnedCalorie", bakarkalori);
+                    return bakarkalori;
+                }
+                else {
+                    Toast.makeText(SportActivity.this,
+                            "Inputan anda tidak masuk akal", Toast.LENGTH_SHORT).show();
+                }
                 return bakarkalori;
             }
         }).addOnSuccessListener(new OnSuccessListener<Double>() {
@@ -281,22 +290,13 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
 
                 break;
             case R.id.btn_save_sport:
-
-                if (calorieBurned > 2000 ){
-                    Toast.makeText(SportActivity.this,
-                            "Inputan anda tidak masuk akal " +calorieBurned, Toast.LENGTH_SHORT).show();
+                if (calorieBurned < 2000 ){
+                    writeDatabase();
                 }
-
-                else if(Double.isInfinite(calorieBurned)==true){
-
+                else{
                     Toast.makeText(SportActivity.this,
                             "Inputan anda tidak masuk akal", Toast.LENGTH_SHORT).show();
                 }
-
-                else {
-                    writeDatabase();
-                }
-
                 break;
         }
 
