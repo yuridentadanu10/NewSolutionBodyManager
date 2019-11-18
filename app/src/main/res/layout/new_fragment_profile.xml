@@ -77,6 +77,7 @@
 
                                     <TextView
                                         android:layout_width="wrap_content"
+                                        android:id="@+id/tv_profile_name"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginTop="30dp"
@@ -115,7 +116,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="Male"
+                                        android:id="@+id/tv_profile_age"
+                                        android:text="20"
                                         android:textColor="#000"
                                         android:textSize="16.7sp" />
 
@@ -125,7 +127,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="3dp"
                                         android:gravity="center"
-                                        android:text="GENDER"
+                                        android:text="AGE"
                                         android:textColor="#8d8d8d"
                                         android:textSize="12.7sp" />
 
@@ -144,6 +146,7 @@
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
                                         android:text="160 cm"
+                                        android:id="@+id/tv_profile_height"
                                         android:textColor="#000"
                                         android:textSize="16.7sp" />
 
@@ -173,6 +176,7 @@
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
                                         android:text="60 kg"
+                                        android:id="@+id/tv_profile_weight"
                                         android:textColor="#000"
                                         android:textSize="16.7sp" />
 

@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 LoginUser();
                 break;
             case R.id.tv_dontHave:
-                startActivity(new Intent(LoginActivity.this, tes321.class));
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
                 break;
         }
     }

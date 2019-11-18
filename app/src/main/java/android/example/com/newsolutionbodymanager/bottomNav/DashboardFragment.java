@@ -45,16 +45,17 @@ import mehdi.sakout.fancybuttons.FancyButton;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener{
-private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie_goal;
+private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie_goal,tv_daily_calorie_breakfast,tv_daily_calorie_lunch,tv_daily_calorie_dinner,tv_daily_calorie_snack;
 private FancyButton btnwalking;
-private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
+private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addSnack;
+
     CircularProgressBar circularProgressBar;
 
     private static final String TAG = "Dashboard";
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
-
+    DocumentReference userRef ;
     public DashboardFragment() {
         // Required empty public constructor
     }
@@ -82,11 +83,16 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
         btn_addBreakfast = view.findViewById(R.id.btn_add_breakfast);
         btn_addLunch = view.findViewById(R.id.btn_add_lunch);
         btn_addDinner= view.findViewById(R.id.btn_add_dinner);
-
+        btn_addSnack= view.findViewById(R.id.btn_add_snack);
+        tv_daily_calorie_breakfast= view.findViewById(R.id.tv_daily_calorie_breakfast);
+        tv_daily_calorie_dinner= view.findViewById(R.id.tv_daily_calorie_dinner);
+        tv_daily_calorie_lunch= view.findViewById(R.id.tv_daily_calorie_lunch);
+        tv_daily_calorie_snack= view.findViewById(R.id.tv_daily_calorie_snack);
         btn_addBreakfast.setOnClickListener(this);
         btn_addLunch.setOnClickListener(this);
         btn_addDinner.setOnClickListener(this);
         btnwalking.setOnClickListener(this);
+        btn_addSnack.setOnClickListener(this);
         circularProgressBar = view.findViewById(R.id.custom_progressbar);
     }
 
@@ -95,7 +101,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
     public void onStart() {
         super.onStart();
 
-        final    DocumentReference userRef = db.collection("users").document(uid);
+         userRef = db.collection("users").document(uid);
         userRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot,
@@ -109,12 +115,16 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                     Log.d(TAG, "Current data: " + snapshot.getData());
 
 
-                    Long dailyCalorie = snapshot.getLong("dailyCalorie");
+                    final Long dailyCalorie = snapshot.getLong("dailyCalorie");
                     Long calorieConsumed = snapshot.getLong("consumedCalorie");
                     Long calorieBurned = snapshot.getLong("burnedCalorie");
                     Long currentWeight = snapshot.getLong("weight");
                     Long weightGoal = snapshot.getLong("weightGoal");
                     Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
+                    final Long breakfast = snapshot.getLong("Breakfast");
+                    final Long lunch = snapshot.getLong("Lunch");
+                    final Long dinner = snapshot.getLong("Dinner");
+                    final Long snack = snapshot.getLong("Snack");
 
                     circularProgressBar.setProgress(dailyCalorie);
                     circularProgressBar.setProgressMax(dailyGoal);
@@ -123,22 +133,26 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                     tv_caloriBurn.setText(String.valueOf(calorieBurned)+" cal");
                     tvCurrentWeight.setText(String.valueOf(currentWeight)+" kg");
                     tvWeightGoal.setText(String.valueOf(weightGoal)+" kg");
-
+                    tv_daily_calorie_breakfast.setText("Today : "+ String.valueOf(breakfast));
+                    tv_daily_calorie_lunch.setText("Today : "+ String.valueOf(lunch));
+                    tv_daily_calorie_dinner.setText("Today : "+ String.valueOf(dinner));
+                    tv_daily_calorie_snack.setText("Today : "+ String.valueOf(snack));
 
                     db.runTransaction(new Transaction.Function<Double>() {
                         @Override
                         public Double apply(Transaction transaction) throws FirebaseFirestoreException {
                             DocumentSnapshot snapshot = transaction.get(userRef);
-                            double kaloriburned = snapshot.getDouble("burnedCalorie");
+                            //new
                             double kalorikonsum = snapshot.getDouble("consumedCalorie") ;
-                            double total =  kalorikonsum-kaloriburned;
 
-                                transaction.update(userRef, "dailyCalorie", total);
-                                return total;
+                            double totalCalorie = breakfast+lunch+dinner+snack;
+                            transaction.update(userRef, "consumedCalorie", totalCalorie);
+                            return totalCalorie;
                         }
                     }).addOnSuccessListener(new OnSuccessListener<Double>() {
                         @Override
                         public void onSuccess(Double result) {
+                            dailyCalorie();
                             Log.d(TAG, "Transaction success: " + result);
                         }
                     })
@@ -148,6 +162,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                                     Log.w(TAG, "Transaction failure.", e);
                                 }
                             });
+
                 } else {
                     Log.d(TAG, "Current data: null");
                 }
@@ -157,6 +172,37 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
 
 
 
+    private void dailyCalorie(){
+
+        db.runTransaction(new Transaction.Function<Double>() {
+            @Override
+            public Double apply(Transaction transaction) throws FirebaseFirestoreException {
+                DocumentSnapshot snapshot = transaction.get(userRef);
+                double kaloriburned = snapshot.getDouble("burnedCalorie");
+
+                //new
+                double kalorikonsum = snapshot.getDouble("consumedCalorie") ;
+
+
+
+                double total =  kalorikonsum-kaloriburned;
+
+                transaction.update(userRef, "dailyCalorie", total);
+                return total;
+            }
+        }).addOnSuccessListener(new OnSuccessListener<Double>() {
+            @Override
+            public void onSuccess(Double result) {
+                Log.d(TAG, "Transaction success: " + result);
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Transaction failure.", e);
+                    }
+                });
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -180,6 +226,14 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
                 //intent.putExtra("model", model);
                 intent2.putExtra("waktuMakan","Lunch");
                 startActivity(intent2);
+                break;
+            case R.id.btn_add_snack:
+                startActivity(new Intent(getActivity(), FoodConsumtion.class));
+
+                Intent intent3 = new Intent(getActivity(), ListFoodActivity.class);
+                //intent.putExtra("model", model);
+                intent3.putExtra("waktuMakan","Snack");
+                startActivity(intent3);
                 break;
             case R.id.btn_walking:
                 startActivity(new Intent(getActivity(), ExercisesActivity.class));

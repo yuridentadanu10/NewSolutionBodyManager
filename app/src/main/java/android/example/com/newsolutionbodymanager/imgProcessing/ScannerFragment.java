@@ -50,7 +50,9 @@ import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel;
 import com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler;
 import com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceAutoMLImageLabelerOptions;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static android.app.Activity.RESULT_OK;
 import static androidx.constraintlayout.widget.Constraints.TAG;
@@ -247,15 +249,17 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
                     if (document.exists()) {
 
                         final double calorie = document.getDouble("calorie");
+                        final String imgUrl = document.getString("imageUrl");
+                        final String waktuMakan = "Lunch";
                         db.runTransaction(new Transaction.Function<Double>() {
                             @Override
                             public Double apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
 
                                 DocumentSnapshot dashboard = transaction.get(dt);
 
-                                double caloriedaily = dashboard.getDouble("consumedCalorie")+calorie;
+                                double caloriedaily = dashboard.getDouble("Lunch")+calorie;
 
-                                transaction.update(dt, "consumedCalorie", caloriedaily);
+                                transaction.update(dt, "Lunch", caloriedaily);
 
                                 return caloriedaily;
                             }
@@ -263,6 +267,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
                             @Override
                             public void onSuccess(Double result) {
                                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
+                                writeHistory(calorie,makanan,imgUrl,waktuMakan);
                                 Toast.makeText(getContext(),
                                         "Kalori sebesar"+calorie+" berhasil ditambahkan ke dailyCalorie anda: ", Toast.LENGTH_SHORT).show();
                                 Intent scanDone = new Intent(getActivity(), ScanDoneActivity.class);
@@ -270,6 +275,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
                                 scanDone.putExtra("foodName", makanan);
                                 scanDone.putExtra("calorie",calorie);
                                 startActivity(scanDone);
+
 
 
                             }
@@ -291,6 +297,31 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
 
     }
 
+    private void writeHistory(double calorie,String nama,String imgUrl,String waktuMakan){
+
+        Map<String, Object> history = new HashMap<>();
+        history.put("name", nama);
+        history.put("calorie", calorie);
+        history.put("imageUrl",imgUrl);
+        history.put("waktuMakan",waktuMakan);
+        String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+        db.collection("users")
+                .document(uid).collection("historiMakanan").document()
+                .set(history)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+
+    }
 
     @Override
     public void onClick(View view) {

@@ -71,7 +71,7 @@ public class FirstTimeSetupActivity extends AppCompatActivity implements Adapter
         int dailygoal = 0;
         int height = Integer.parseInt( etHeight.getText().toString() );
         int weight = Integer.parseInt( etWeight.getText().toString() );
-        int weightGoal = Integer.parseInt( etWeightGoal.getText().toString() );
+         int weightGoal = Integer.parseInt( etWeightGoal.getText().toString() );
         final String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
         Log.d(TAG, "Your ID : " +uid);
         UserAdditionalData user = new UserAdditionalData(kelamin ,age, height,weight,weightGoal,dailygoal);
@@ -119,8 +119,8 @@ public class FirstTimeSetupActivity extends AppCompatActivity implements Adapter
             @Override
             public void onSuccess(Double result) {
                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
-                int dailyCalorie=0,consumedCalorie=0,burnedCalorie=0,currentWeight=0,weightGoal=0;
-                setDashboard user = new setDashboard(dailyCalorie,consumedCalorie,burnedCalorie,currentWeight,weightGoal);
+                int dailyCalorie=0,consumedCalorie=0,burnedCalorie=0,currentWeight=0,dailyBreakfast=0,dailyLunch=0,dailyDinner=0,dailySnack=0;
+                setDashboard user = new setDashboard(dailyCalorie,consumedCalorie,burnedCalorie,currentWeight,dailyBreakfast,dailyLunch,dailyDinner,dailySnack);
                 db.collection("users")
                         .document(uid)
                         .set(user, SetOptions.merge())

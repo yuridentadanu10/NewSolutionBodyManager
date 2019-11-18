@@ -132,10 +132,14 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 DocumentSnapshot dashboard = transaction.get(dt);
 
                                 double caloriedaily = dashboard.getDouble("consumedCalorie")+calorie;
+                                //new
+                                double dailyWaktumakan = dashboard.getDouble(waktuMakan)+calorie;
+                                //new
 
-                                transaction.update(dt, "consumedCalorie", caloriedaily);
+                                transaction.update(dt, waktuMakan, dailyWaktumakan);
 
-                                return caloriedaily;
+                                return dailyWaktumakan;
+                                //new
                             }
                         }).addOnSuccessListener(new OnSuccessListener<Double>() {
                             @Override

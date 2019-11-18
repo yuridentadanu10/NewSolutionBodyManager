@@ -37,6 +37,8 @@ public class FoodAdapter extends FirestoreRecyclerAdapter<Food, FoodAdapter.Food
                 .load(model.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.imgFood);
+
+
     }
 
     @NonNull

@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,6 +45,7 @@ public class ProfileFragment extends Fragment {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     Button btnchangeplan;
     Toolbar mTopToolbar;
+    TextView tv_profile_name,tv_profile_age,tv_profile_height,tv_profile_weight;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -60,6 +62,13 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        tv_profile_name = view.findViewById(R.id.tv_profile_name);
+        tv_profile_age = view.findViewById(R.id.tv_profile_age);
+        tv_profile_weight = view.findViewById(R.id.tv_profile_weight);
+        tv_profile_height = view.findViewById(R.id.tv_profile_height);
+
+
+
     btnchangeplan=view.findViewById(R.id.btnChangePlans);
     btnchangeplan.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -92,6 +101,16 @@ public class ProfileFragment extends Fragment {
 
                     Long dailyCalorie = snapshot.getLong("dailyCalorie");
                     Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
+                    String nama = snapshot.getString("name");
+                    Long age = snapshot.getLong("age");
+                    Long height = snapshot.getLong("height");
+                    Long weight = snapshot.getLong("weight");
+
+                    tv_profile_name.setText(nama);
+                    tv_profile_age.setText(String.valueOf(age));
+                    tv_profile_weight.setText(String.valueOf(weight));
+                    tv_profile_height.setText(String.valueOf(height));
+
 
                 } else {
                     Log.d(TAG, "Current data: null");
