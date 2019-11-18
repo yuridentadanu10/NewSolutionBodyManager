@@ -6,6 +6,8 @@ import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
 import android.example.com.newsolutionbodymanager.R;
 import android.example.com.newsolutionbodymanager.history.FoodHistory;
 import android.example.com.newsolutionbodymanager.history.HistoryFoodAdapter;
+import android.example.com.newsolutionbodymanager.history.HistorySportAdapter;
+import android.example.com.newsolutionbodymanager.history.SportHistory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,10 +44,12 @@ public class ProfileFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth;
     private HistoryFoodAdapter adapter;
+    private HistorySportAdapter adapter2;
+
     FirebaseStorage storage = FirebaseStorage.getInstance();
     Button btnchangeplan;
     Toolbar mTopToolbar;
-    TextView tv_profile_name,tv_profile_age,tv_profile_height,tv_profile_weight;
+    TextView tv_profile_name,tv_profile_age,tv_profile_height,tv_profile_weight,tv_daily_calorie,tv_daily_calorie_burned;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -66,8 +70,8 @@ public class ProfileFragment extends Fragment {
         tv_profile_age = view.findViewById(R.id.tv_profile_age);
         tv_profile_weight = view.findViewById(R.id.tv_profile_weight);
         tv_profile_height = view.findViewById(R.id.tv_profile_height);
-
-
+        tv_daily_calorie = view.findViewById(R.id.tv_daily_calorie);
+        tv_daily_calorie_burned = view.findViewById(R.id.tv_daily_calorie_burned);
 
     btnchangeplan=view.findViewById(R.id.btnChangePlans);
     btnchangeplan.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,7 @@ public class ProfileFragment extends Fragment {
     });
 
         setUpRecyclerView(view);
+        setUpRecyclerViewOlahraga(view);
     }
 
     private void readDatabase() {
@@ -100,7 +105,7 @@ public class ProfileFragment extends Fragment {
 
 
                     Long dailyCalorie = snapshot.getLong("dailyCalorie");
-                    Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
+                    Long burned = snapshot.getLong("burnedCalorie");
                     String nama = snapshot.getString("name");
                     Long age = snapshot.getLong("age");
                     Long height = snapshot.getLong("height");
@@ -110,7 +115,8 @@ public class ProfileFragment extends Fragment {
                     tv_profile_age.setText(String.valueOf(age));
                     tv_profile_weight.setText(String.valueOf(weight));
                     tv_profile_height.setText(String.valueOf(height));
-
+                    tv_daily_calorie.setText("+ "+String.valueOf(dailyCalorie)+" Calories");
+                    tv_daily_calorie_burned.setText("- "+String.valueOf(burned)+" Calories");
 
                 } else {
                     Log.d(TAG, "Current data: null");
@@ -143,11 +149,34 @@ public class ProfileFragment extends Fragment {
 
 
     }
+    private void setUpRecyclerViewOlahraga(View view) {
+        String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Query query = db.collection("users").document(uid).collection("historiOlahraga").orderBy("name").limit(3);
 
+        FirestoreRecyclerOptions<SportHistory> options = new FirestoreRecyclerOptions.Builder<SportHistory>()
+                .setQuery(query, SportHistory.class)
+                .build();
+
+        adapter2 = new HistorySportAdapter(options);
+        RecyclerView recyclerView = view.findViewById(R.id.rv_history1);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adapter2);
+
+
+        adapter2.setOnItemClickListener(new HistorySportAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+
+            }
+        });
+
+
+    }
     @Override
     public void onStart() {
         super.onStart();
         adapter.startListening();
+        adapter2.startListening();
         readDatabase();
 
     }

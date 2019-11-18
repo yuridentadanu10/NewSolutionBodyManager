@@ -145,8 +145,9 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
                             @Override
                             public void onSuccess(Double result) {
                                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
-                                Toast.makeText(DetailActivityFood.this,
-                                        "Kalori sebesar"+calorie+" berhasil ditambahkan ke dailyCalorie anda: ", Toast.LENGTH_SHORT).show();
+
+                                Intent tent = new Intent(DetailActivityFood.this,MainActivity.class);
+                                startActivity(tent);
                                 writeHistory(calorie,food,img,waktuMakan);
 
                             }

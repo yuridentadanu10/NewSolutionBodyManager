@@ -40,6 +40,9 @@ import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.firestore.Transaction;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SportActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = "sportActivity";
@@ -52,7 +55,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
     double hasil,calorieBurned,distance;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth ;
-
+     String olahraga;
     int value1,value2,value3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +200,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
 
     private void bacaDatabase(){
         Intent i=getIntent();
-        final String olahraga=i.getExtras().getString("olahraga");
+         olahraga=i.getExtras().getString("olahraga");
         Log.d(TAG, "bacaDatabase: " +olahraga);
 
         DocumentReference docRef = db.collection("sport").document(olahraga);
@@ -249,6 +252,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
         }).addOnSuccessListener(new OnSuccessListener<Double>() {
             @Override
             public void onSuccess(Double result) {
+                writeHistory(calorieBurned,olahraga);
                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
                 Intent ijuk = new Intent(SportActivity.this,MainActivity.class);
                 startActivity(ijuk);
@@ -274,6 +278,30 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
             calorieBurned = 0;
         }
        return calorieBurned;
+    }
+
+    private void writeHistory(double calorie,String nama){
+
+        Map<String, Object> history = new HashMap<>();
+        history.put("name", nama);
+        history.put("calorie", calorie);
+        String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+        db.collection("users")
+                .document(uid).collection("historiOlahraga").document()
+                .set(history)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+
     }
 
     @Override

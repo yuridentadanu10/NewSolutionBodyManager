@@ -91,6 +91,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:id="@+id/tv_consumed_calori"
                 android:layout_height="wrap_content"
@@ -102,9 +103,11 @@
                 android:textSize="18sp"
                 />
 
+
             <TextView
                 android:id="@+id/tv_calorie_burned"
                 android:layout_marginStart="10dp"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -114,9 +117,11 @@
                 android:textSize="18sp"
                 />
 
+
             <TextView
                 android:layout_marginStart="10dp"
                 android:layout_width="match_parent"
+                android:gravity="center"
                 android:layout_weight="1"
                 android:id="@+id/tv_current_weight"
                 android:layout_height="wrap_content"
@@ -125,8 +130,10 @@
                 android:text="40 kg"
                 android:textSize="18sp"
                 />
+
             <TextView
                 android:layout_marginStart="10dp"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -144,6 +151,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:textColor="#FFFFFF"
                     android:fontFamily="@font/segoe_ui"
@@ -151,10 +159,12 @@
                     android:text="Consumed"
                     android:textSize="16sp"
                     />
+
                 <TextView
                     android:layout_marginStart="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui"
                     android:textColor="#FFFFFF"
@@ -162,20 +172,24 @@
                     android:textSize="16sp"
                     />
 
+
                 <TextView
                     android:layout_marginStart="10dp"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/segoe_ui"
                     android:textColor="#FFFFFF"
                     android:text="Weight"
                     android:textSize="16sp"
                     />
+
                 <TextView
                     android:layout_marginStart="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:layout_weight="1"
 
                     android:fontFamily="@font/segoe_ui"
