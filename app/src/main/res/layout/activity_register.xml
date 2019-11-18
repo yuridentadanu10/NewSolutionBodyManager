@@ -9,16 +9,23 @@
     tools:context=".LoginAndFriend.RegisterActivity">
 
     <ImageView
-        android:layout_marginTop="79dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="140dp"
         android:id="@+id/logo"
-        android:layout_width="80.5dp"
-        android:layout_height="91dp"
-        android:src="@drawable/logo" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_new" />
+    <ImageView
+        android:layout_width="252dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/solution_font"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/logo"
+        android:layout_height="24dp"
+        android:src="@drawable/solution"/>
 
     <RelativeLayout
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/solution_font"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -40,14 +47,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingTop="30dp">
+           >
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Sign Up"
+                android:text="@string/register"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textColor="#58A74C"
                 android:textSize="30dp"
                 android:layout_marginBottom="20dp"
@@ -58,7 +66,13 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Username">
+                android:hint="Username"
+                android:textColorHighlight="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColor="#4F8D46">
 
 
             </androidx.appcompat.widget.AppCompatEditText>
@@ -67,7 +81,13 @@
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email">
+                android:hint="Email"
+                android:textColorHighlight="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColor="#4F8D46">
 
 
             </androidx.appcompat.widget.AppCompatEditText>
@@ -76,7 +96,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:textColorHighlight="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColor="#4F8D46">
 
 
             </androidx.appcompat.widget.AppCompatEditText>
@@ -85,7 +111,13 @@
                 android:layout_height="wrap_content"
                 android:hint="Confirm Password"
                 android:id="@+id/et_confirm"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                android:textColorHighlight="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColor="#4F8D46">
 
 
             </androidx.appcompat.widget.AppCompatEditText>

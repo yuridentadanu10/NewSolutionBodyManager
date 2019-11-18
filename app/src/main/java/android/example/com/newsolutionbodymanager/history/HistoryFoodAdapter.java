@@ -32,7 +32,7 @@ public class HistoryFoodAdapter extends FirestoreRecyclerAdapter<FoodHistory, Hi
     @Override
     protected void onBindViewHolder(@NonNull HistoryFoodAdapter.HistoryHolder holder, int position, @NonNull FoodHistory model) {
         holder.textViewTitle.setText(model.getName());
-        holder.textViewDescription.setText(String.valueOf(model.getCalorie()));
+        holder.textViewDescription.setText("+ "+String.valueOf(model.getCalorie())+" Cal");
         holder.textViewWaktuMakan.setText(model.getWaktuMakan());
         Picasso.get()
                 .load(model.getImageUrl())

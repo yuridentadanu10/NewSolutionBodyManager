@@ -81,7 +81,7 @@
                                         android:id="@+id/tv_profile_name"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
-                                        android:layout_marginTop="30dp"
+                                        android:layout_marginTop="35dp"
                                         android:text="Atta Halilintar"
                                         android:textColor="#4f4f4f"
                                         android:textSize="18.5sp" />
@@ -104,7 +104,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="bottom"
-                                android:layout_marginBottom="20dp"
+                                android:layout_marginBottom="25dp"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -214,7 +214,7 @@
                         android:layout_gravity="center_horizontal"
                         android:background="@drawable/circle"
                         android:elevation="5dp"
-                        android:src="@drawable/profile2" />
+                        android:src="@drawable/man" />
 
                 </FrameLayout>
 
@@ -252,7 +252,7 @@
                     android:layout_marginStart="10dp"
                     android:textColor="#1D1D1B"
                     android:textSize="25sp"
-                    android:text="18"
+                    android:text="19"
                     android:fontFamily="@font/segoe_ui_bold"/>
 <LinearLayout
     android:layout_width="wrap_content"
@@ -339,7 +339,7 @@
                     android:layout_marginStart="10dp"
                     android:textColor="#1D1D1B"
                     android:textSize="25sp"
-                    android:text="18"
+                    android:text="19"
                     android:fontFamily="@font/segoe_ui_bold"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -414,12 +414,12 @@
 
             <Button
                 android:id="@+id/btnChangePlans"
-                android:layout_width="350dp"
+                android:layout_width="250dp"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_margin="27dp"
                 android:background="@drawable/radius_burned_button"
-                android:text="@string/changes_plans"
+                android:text="@string/Sign_Out"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />

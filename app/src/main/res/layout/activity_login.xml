@@ -14,11 +14,19 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo_new" />
+    <ImageView
+        android:layout_width="252dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/solution_font"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/logo"
+        android:layout_height="24dp"
+        android:src="@drawable/solution"/>
 
     <RelativeLayout
         android:id="@+id/whitebox"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/solution_font"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -28,28 +36,46 @@
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="20dp">
+
+        <TextView
+            android:id="@+id/login_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:textColor="#58A74C"
+            android:textSize="30dp"
+            android:layout_marginBottom="20dp"
+
+            />
         <ProgressBar
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            
             android:layout_centerVertical="true" />
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/login_tv"
             android:orientation="vertical"
-            android:paddingTop="30dp">
-
-
-
+         >
 
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColorHighlight="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColor="#4F8D46"
                 android:hint="Email">
 
 
@@ -61,6 +87,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:textColor="#4F8D46"
+                android:outlineAmbientShadowColor="#4F8D46"
+                android:outlineSpotShadowColor="#4F8D46"
+                android:textColorHint="#4F8D46"
+                android:shadowColor="#4F8D46"
+                android:textColorHighlight="#4F8D46"
                 android:inputType="textPassword">
 
 

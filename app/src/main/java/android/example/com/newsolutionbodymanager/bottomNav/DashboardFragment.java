@@ -45,7 +45,7 @@ import mehdi.sakout.fancybuttons.FancyButton;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener{
-private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie_goal,tv_daily_calorie_breakfast,tv_daily_calorie_lunch,tv_daily_calorie_dinner,tv_daily_calorie_snack;
+private TextView tvTanggal,tvCalorieConsumed,tv_caloriBurn,tvCurrentWeight,tvWeightGoal,tvDailyCalorie_goal,tv_daily_calorie_breakfast,tv_daily_calorie_lunch,tv_daily_calorie_dinner,tv_daily_calorie_snack,tv_daily_calorie_burned;
 private FancyButton btnwalking;
 private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addSnack;
 
@@ -87,6 +87,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
         tv_daily_calorie_breakfast= view.findViewById(R.id.tv_daily_calorie_breakfast);
         tv_daily_calorie_dinner= view.findViewById(R.id.tv_daily_calorie_dinner);
         tv_daily_calorie_lunch= view.findViewById(R.id.tv_daily_calorie_lunch);
+        tv_daily_calorie_burned=view.findViewById(R.id.tv_daily_calorie_burned);
         tv_daily_calorie_snack= view.findViewById(R.id.tv_daily_calorie_snack);
         btn_addBreakfast.setOnClickListener(this);
         btn_addLunch.setOnClickListener(this);
@@ -133,10 +134,14 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                     tv_caloriBurn.setText(String.valueOf(calorieBurned)+" cal");
                     tvCurrentWeight.setText(String.valueOf(currentWeight)+" kg");
                     tvWeightGoal.setText(String.valueOf(weightGoal)+" kg");
-                    tv_daily_calorie_breakfast.setText("Today : "+ String.valueOf(breakfast));
-                    tv_daily_calorie_lunch.setText("Today : "+ String.valueOf(lunch));
-                    tv_daily_calorie_dinner.setText("Today : "+ String.valueOf(dinner));
-                    tv_daily_calorie_snack.setText("Today : "+ String.valueOf(snack));
+                    tv_daily_calorie_breakfast.setText("Today : "+ String.valueOf(breakfast)+" Cal");
+                    tv_daily_calorie_lunch.setText("Today : "+ String.valueOf(lunch)+" Cal");
+                    tv_daily_calorie_dinner.setText("Today : "+ String.valueOf(dinner)+" Cal");
+                    tv_daily_calorie_snack.setText("Today : "+ String.valueOf(snack)+" Cal");
+                    tv_daily_calorie_burned.setText("Today Exercises : "+ String.valueOf(calorieBurned)+" Cal");
+
+
+
 
                     db.runTransaction(new Transaction.Function<Double>() {
                         @Override

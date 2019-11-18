@@ -32,7 +32,7 @@ public class FoodAdapter extends FirestoreRecyclerAdapter<Food, FoodAdapter.Food
     @Override
     protected void onBindViewHolder(@NonNull FoodHolder holder, int position, @NonNull Food model) {
         holder.textViewTitle.setText(model.getName());
-        holder.textViewDescription.setText(String.valueOf(model.getCalorie()));
+        holder.textViewDescription.setText(String.valueOf(model.getCalorie())+" Calorie");
         Picasso.get()
                 .load(model.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)

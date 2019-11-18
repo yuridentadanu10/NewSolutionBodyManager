@@ -2,6 +2,7 @@ package android.example.com.newsolutionbodymanager.recyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.FoodConsumtion.FoodConsumtion;
@@ -39,6 +40,7 @@ TextView foodName,calorieInfo,carbsInfo,proteinInfo,fatInfo;
 Button btnAddDetail;
 ImageView imgFood;
     String waktuMakan;
+    Toolbar mTopToolbar;
     String img;
     private static final String TAG = "DetailFoodAct";
 
@@ -65,7 +67,15 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
         foodName = findViewById(R.id.foodName);
         foodName.setText(food);
 
+        mTopToolbar = findViewById(R.id.toolbar_support);
+        setSupportActionBar(mTopToolbar);
 
+        TextView textView = mTopToolbar.findViewById(R.id.judul_toolbar);
+        textView.setText(food);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 

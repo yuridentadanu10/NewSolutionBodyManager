@@ -30,7 +30,7 @@
             android:fontFamily="@font/segoe_ui"
             android:layout_marginBottom="25dp"
             android:layout_height="wrap_content"
-            android:text="Friday Nov 15,2019"
+            android:text="Tuesday Nov 19,2019"
             android:layout_centerHorizontal="true"/>
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
@@ -62,7 +62,7 @@
             android:textColor="#FFFFFF"
             android:fontFamily="@font/segoe_ui_bold"
             android:gravity="center"
-            android:text="580 / 2200"
+            tools:text="580 / 2200"
             android:textSize="28sp"
             />
         <TextView
@@ -98,8 +98,8 @@
                 android:layout_weight="1"
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/segoe_ui_bold"
+                tools:text="580 cal"
 
-                android:text="580 cal"
                 android:textSize="18sp"
                 />
 
@@ -113,7 +113,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:textColor="#FFFFFF"
-                android:text="40 cal"
+                tools:text="580 cal"
                 android:textSize="18sp"
                 />
 
@@ -127,7 +127,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:textColor="#FFFFFF"
-                android:text="40 kg"
+
+                tools:text="40 kg"
                 android:textSize="18sp"
                 />
 
@@ -140,7 +141,8 @@
                 android:id="@+id/tv_weight_goal"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:textColor="#FFFFFF"
-                android:text="60 kg"
+
+                tools:text="60 kg"
                 android:textSize="18sp"
                 />
         </LinearLayout>

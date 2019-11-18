@@ -30,7 +30,7 @@ public class HistorySportAdapter extends FirestoreRecyclerAdapter<SportHistory, 
     @Override
     protected void onBindViewHolder(@NonNull HistorySportAdapter.HistoryHolder holder, int position, @NonNull SportHistory model) {
         holder.textViewTitle.setText(model.getName());
-        holder.textViewDescription.setText(String.valueOf(model.getCalorie()));
+        holder.textViewDescription.setText("- "+String.valueOf(model.getCalorie())+" Cal");
     }
 
     @NonNull

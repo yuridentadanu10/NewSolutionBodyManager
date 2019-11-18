@@ -70,7 +70,7 @@ public class ListFoodActivity extends AppCompatActivity {
     }
 
     private void setUpRecyclerView() {
-        Query query = db.collection("food").orderBy("priority", Query.Direction.DESCENDING);
+        Query query = db.collection("food").orderBy("priority", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<Food> options = new FirestoreRecyclerOptions.Builder<Food>()
                 .setQuery(query, Food.class)

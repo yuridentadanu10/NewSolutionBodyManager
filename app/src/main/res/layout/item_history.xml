@@ -31,10 +31,12 @@
         android:layout_width="wrap_content"
 
         android:id="@+id/tv_food_name"
-        android:fontFamily="@font/segoe_ui_bold"
+        android:fontFamily="@font/segoe_ui"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:textSize="14sp"
         android:layout_marginTop="5dp"
+        android:textColor="#000"
         android:layout_toEndOf="@id/img_food1"
         android:text="Sphagetti" />
     <TextView
@@ -45,6 +47,7 @@
         android:layout_below="@id/tv_food_name"
         android:layout_toEndOf="@id/img_food1"
         android:fontFamily="@font/segoe_ui"
+        android:textSize="12sp"
         android:text="Breakfast" />
     <TextView
         android:layout_width="wrap_content"
