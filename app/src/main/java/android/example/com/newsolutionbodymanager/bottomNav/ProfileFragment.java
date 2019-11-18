@@ -3,17 +3,14 @@ package android.example.com.newsolutionbodymanager.bottomNav;
 
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
-import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.history.FoodHistory;
 import android.example.com.newsolutionbodymanager.history.HistoryFoodAdapter;
-import android.example.com.newsolutionbodymanager.recyclerView.DetailActivityFood;
-import android.example.com.newsolutionbodymanager.recyclerView.Food;
-import android.example.com.newsolutionbodymanager.recyclerView.FoodAdapter;
-import android.example.com.newsolutionbodymanager.recyclerView.ListFoodActivity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,12 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,10 +29,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.Transaction;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 
 /**
@@ -53,6 +43,7 @@ public class ProfileFragment extends Fragment {
     private HistoryFoodAdapter adapter;
     FirebaseStorage storage = FirebaseStorage.getInstance();
     Button btnchangeplan;
+    Toolbar mTopToolbar;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -115,18 +106,13 @@ public class ProfileFragment extends Fragment {
         String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
         Query query = db.collection("users").document(uid).collection("historiMakanan").orderBy("name").limit(3);
 
-        FirestoreRecyclerOptions<Food> options = new FirestoreRecyclerOptions.Builder<Food>()
-                .setQuery(query, Food.class)
+        FirestoreRecyclerOptions<FoodHistory> options = new FirestoreRecyclerOptions.Builder<FoodHistory>()
+                .setQuery(query, FoodHistory.class)
                 .build();
 
         adapter = new HistoryFoodAdapter(options);
-
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
         RecyclerView recyclerView = view.findViewById(R.id.rv_history);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
 
 
@@ -135,7 +121,6 @@ public class ProfileFragment extends Fragment {
             public void onItemClick(final DocumentSnapshot documentSnapshot, int position) {
             }
         });
-
 
 
     }

@@ -7,6 +7,8 @@ import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
 import android.example.com.newsolutionbodymanager.LoginAndFriend.RegisterActivity;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
+import android.example.com.newsolutionbodymanager.recyclerView.DetailActivityFood;
+import android.example.com.newsolutionbodymanager.recyclerView.ListFoodActivity;
 import android.example.com.newsolutionbodymanager.sportActivity.ExercisesActivity;
 import android.example.com.newsolutionbodymanager.sportActivity.SportActivity;
 import android.media.Image;
@@ -159,13 +161,25 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner;
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_add_breakfast:
-                startActivity(new Intent(getActivity(), FoodConsumtion.class));
+
+                Intent intent = new Intent(getActivity(), ListFoodActivity.class);
+                //intent.putExtra("model", model);
+                intent.putExtra("waktuMakan","Breakfast");
+                startActivity(intent);
                 break;
             case R.id.btn_add_dinner:
-                startActivity(new Intent(getActivity(), FoodConsumtion.class));
+                Intent intent1 = new Intent(getActivity(), ListFoodActivity.class);
+                //intent.putExtra("model", model);
+                intent1.putExtra("waktuMakan","Dinner");
+                startActivity(intent1);
                 break;
             case R.id.btn_add_lunch:
                 startActivity(new Intent(getActivity(), FoodConsumtion.class));
+
+                Intent intent2 = new Intent(getActivity(), ListFoodActivity.class);
+                //intent.putExtra("model", model);
+                intent2.putExtra("waktuMakan","Lunch");
+                startActivity(intent2);
                 break;
             case R.id.btn_walking:
                 startActivity(new Intent(getActivity(), ExercisesActivity.class));

@@ -3,9 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
-
     tools:context=".recyclerView.ListFoodActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_support"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/judul_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:textSize="20dp"
+            android:layout_marginStart="15dp"
+            android:text="Scan Food"
+            android:textAppearance="@android:style/TextAppearance.WindowTitle"
+            android:textColor="#76C33A"
+            android:visibility="visible"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"

@@ -2,6 +2,7 @@ package android.example.com.newsolutionbodymanager.recyclerView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
@@ -36,6 +38,9 @@ public class ListFoodActivity extends AppCompatActivity {
     private FoodAdapter adapter;
     public static final String MOVIE_ITEM = "film";
     FirebaseStorage storage = FirebaseStorage.getInstance();
+    TextView tv_waktuMakan;
+    Toolbar mTopToolbar;
+    String waktuMakan;
 
 
     @Override
@@ -45,6 +50,20 @@ public class ListFoodActivity extends AppCompatActivity {
         StorageReference storageRef = storage.getReference();
         StorageReference imagesRef = storageRef.child("images");
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        Intent i=getIntent();
+         waktuMakan=i.getExtras().getString("waktuMakan");
+
+
+        mTopToolbar = findViewById(R.id.toolbar_support);
+        setSupportActionBar(mTopToolbar);
+
+        TextView textView = mTopToolbar.findViewById(R.id.judul_toolbar);
+        textView.setText(waktuMakan);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         setUpRecyclerView();
 
 
@@ -75,10 +94,13 @@ public class ListFoodActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListFoodActivity.this, DetailActivityFood.class);
                 //intent.putExtra("model", model);
                 intent.putExtra("jangkrik", id);
+                intent.putExtra("waktuMakan",waktuMakan);
                 startActivity(intent);
             }
 
         });
+
+
 
     }
 

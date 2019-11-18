@@ -12,10 +12,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -65,7 +69,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button btnPhoto, btnGallery,btnScanFood;
     public Long calorie;
-
+    Toolbar mTopToolbar;
     public String  makanan;
     public   float deteksijelek =0;
 
@@ -90,7 +94,16 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
         btnGallery = view.findViewById(R.id.btn_galeri);
         btnPhoto = view.findViewById(R.id.btn_foto);
 
-        
+        mTopToolbar = view.findViewById(R.id.toolbar_support);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(mTopToolbar);
+
+        TextView textView = mTopToolbar.findViewById(R.id.judul_toolbar);
+        textView.setText("Scan Food");
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder().build();
 
@@ -125,6 +138,8 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
         btnPhoto.setOnClickListener(this);
         btnGallery.setOnClickListener(this);
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -162,6 +177,7 @@ public class ScannerFragment extends BaseFragment implements View.OnClickListene
             }
         }
     }
+
 
 
 

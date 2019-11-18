@@ -20,19 +20,20 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-public class HistoryFoodAdapter extends FirestoreRecyclerAdapter<Food, HistoryFoodAdapter.HistoryHolder> {
+public class HistoryFoodAdapter extends FirestoreRecyclerAdapter<FoodHistory, HistoryFoodAdapter.HistoryHolder> {
     private HistoryFoodAdapter.OnItemClickListener listener;
     private Context context;
     private static final String TAG = "DetailFoodAct";
     StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-    public HistoryFoodAdapter(@NonNull FirestoreRecyclerOptions<Food> options) {
+    public HistoryFoodAdapter(@NonNull FirestoreRecyclerOptions<FoodHistory> options) {
         super(options);
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull HistoryFoodAdapter.HistoryHolder holder, int position, @NonNull Food model) {
+    protected void onBindViewHolder(@NonNull HistoryFoodAdapter.HistoryHolder holder, int position, @NonNull FoodHistory model) {
         holder.textViewTitle.setText(model.getName());
         holder.textViewDescription.setText(String.valueOf(model.getCalorie()));
+        holder.textViewWaktuMakan.setText(model.getWaktuMakan());
         Picasso.get()
                 .load(model.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -50,7 +51,7 @@ public class HistoryFoodAdapter extends FirestoreRecyclerAdapter<Food, HistoryFo
 
     class HistoryHolder extends RecyclerView.ViewHolder {
         TextView textViewTitle;
-        TextView textViewDescription;
+        TextView textViewDescription,textViewWaktuMakan;
         ImageView imgFood;
 
         public HistoryHolder(View itemView) {
@@ -58,6 +59,7 @@ public class HistoryFoodAdapter extends FirestoreRecyclerAdapter<Food, HistoryFo
             textViewTitle = itemView.findViewById(R.id.tv_food_name);
             textViewDescription = itemView.findViewById(R.id.tv_calorie_info);
             imgFood = itemView.findViewById(R.id.img_food);
+            textViewWaktuMakan=itemView.findViewById(R.id.tv_waktu_makan);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

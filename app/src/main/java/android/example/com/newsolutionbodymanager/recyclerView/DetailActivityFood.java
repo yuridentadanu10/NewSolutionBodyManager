@@ -38,6 +38,7 @@ public class DetailActivityFood extends AppCompatActivity implements View.OnClic
 TextView foodName,calorieInfo,carbsInfo,proteinInfo,fatInfo;
 Button btnAddDetail;
 ImageView imgFood;
+    String waktuMakan;
     String img;
     private static final String TAG = "DetailFoodAct";
 
@@ -60,6 +61,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
         //RECEIVE OUR DATA
         Intent i=getIntent();
         final String food=i.getExtras().getString("jangkrik");
+         waktuMakan = i.getExtras().getString("waktuMakan");
         foodName = findViewById(R.id.foodName);
         foodName.setText(food);
 
@@ -141,7 +143,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
                                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
                                 Toast.makeText(DetailActivityFood.this,
                                         "Kalori sebesar"+calorie+" berhasil ditambahkan ke dailyCalorie anda: ", Toast.LENGTH_SHORT).show();
-                                writeHistory(calorie,food,img);
+                                writeHistory(calorie,food,img,waktuMakan);
 
                             }
                         });
@@ -158,12 +160,13 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     }
 
-private void writeHistory(double calorie,String nama,String imgUrl){
+private void writeHistory(double calorie,String nama,String imgUrl,String waktuMakan){
 
     Map<String, Object> history = new HashMap<>();
     history.put("name", nama);
     history.put("calorie", calorie);
     history.put("imageUrl",imgUrl);
+    history.put("waktuMakan",waktuMakan);
     String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
     db.collection("users")
             .document(uid).collection("historiMakanan").document()

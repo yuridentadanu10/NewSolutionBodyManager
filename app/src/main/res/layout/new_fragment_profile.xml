@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#E8EBE2"
    >
 
 
@@ -213,18 +214,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="19dp"
                 android:orientation="horizontal">
 
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Food History"
-                    android:textColor="#252527"
-                    android:textSize="16.8sp" />
+
 
 
 
@@ -232,29 +227,149 @@
             </LinearLayout>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_history"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:paddingLeft="10dp"></androidx.recyclerview.widget.RecyclerView>
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_tanggal"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:textSize="30sp"
+                    android:text="18"
+                    android:fontFamily="@font/segoe_ui_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_today"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@id/tv_tanggal"
+                    android:text="Today Food History" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:id="@+id/tv_bulan"
+                    android:layout_marginStart="10dp"
+                    android:layout_below="@id/tv_today"
+                    android:layout_toEndOf="@id/tv_tanggal"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="November 2019" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:text="+ 180 Calories"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/tv_bulan"
+                    android:id="@+id/view_history"
+                    android:background="#BFBFBF" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="36dp"
-                android:text="Exercises History"
-                android:textColor="#252527"
-                android:textSize="16.8sp" />
+            </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:paddingLeft="10dp"></androidx.recyclerview.widget.RecyclerView>
+                android:background="#ffffff">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history"
+                    android:layout_below="@+id/view_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_tanggal1"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:textSize="30sp"
+                    android:text="18"
+                    android:fontFamily="@font/segoe_ui_bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_today1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@id/tv_tanggal1"
+                    android:text="Today Exercises History" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_bulan1"
+                    android:layout_marginStart="10dp"
+                    android:layout_below="@id/tv_today1"
+                    android:layout_toEndOf="@id/tv_tanggal1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:text="November 2019" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentRight="true"
+                    android:text="+ 180 Calories"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/tv_bulan1"
+                    android:id="@+id/view_history1"
+                    android:background="#BFBFBF" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history"
+                    android:layout_below="@+id/view_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnChangePlans"

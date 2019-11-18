@@ -1,44 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
+    android:layout_marginVertical="10dp"
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/img_food1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="12.7dp"
         app:cardCornerRadius="5dp">
-
 
         <ImageView
             android:id="@+id/img_food"
-            android:layout_width="143dp"
-            android:layout_height="177dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:scaleType="fitXY"
+            android:src="@drawable/food_history"
           />
 
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_food_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="UI Inspiration"
-        android:textColor="#8d8d8d"
-        android:textSize="13.5sp" />
-    <TextView
-        android:id="@+id/tv_calorie_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="UI Inspiration"
-        android:textColor="#8d8d8d"
-        android:textSize="13.5sp" />
 
-</LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+
+        android:id="@+id/tv_food_name"
+        android:fontFamily="@font/segoe_ui_bold"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/img_food1"
+        android:text="Sphagetti" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_waktu_makan"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/tv_food_name"
+        android:layout_toEndOf="@id/img_food1"
+        android:fontFamily="@font/segoe_ui"
+        android:text="Breakfast" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv_calorie_info"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/segoe_ui"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:text="+ 180 Calories"
+        />
+
+</RelativeLayout>
