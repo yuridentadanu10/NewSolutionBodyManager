@@ -2,16 +2,10 @@ package android.example.com.newsolutionbodymanager.bottomNav;
 
 
 import android.content.Intent;
-import android.example.com.newsolutionbodymanager.FoodConsumtion.FoodConsumtion;
-import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
-import android.example.com.newsolutionbodymanager.LoginAndFriend.RegisterActivity;
-import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
-import android.example.com.newsolutionbodymanager.recyclerView.DetailActivityFood;
 import android.example.com.newsolutionbodymanager.recyclerView.ListFoodActivity;
 import android.example.com.newsolutionbodymanager.sportActivity.ExercisesActivity;
-import android.example.com.newsolutionbodymanager.sportActivity.SportActivity;
-import android.media.Image;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -23,14 +17,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -117,11 +108,11 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
 
 
                     final Long dailyCalorie = snapshot.getLong("dailyCalorie");
-                    Long calorieConsumed = snapshot.getLong("consumedCalorie");
+                    final Long calorieConsumed = snapshot.getLong("consumedCalorie");
                     Long calorieBurned = snapshot.getLong("burnedCalorie");
                     Long currentWeight = snapshot.getLong("weight");
                     Long weightGoal = snapshot.getLong("weightGoal");
-                    Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
+                    final Long dailyGoal = snapshot.getLong("dailyCalorieGoal");
                     final Long breakfast = snapshot.getLong("Breakfast");
                     final Long lunch = snapshot.getLong("Lunch");
                     final Long dinner = snapshot.getLong("Dinner");
@@ -140,7 +131,12 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                     tv_daily_calorie_snack.setText("Today : "+ String.valueOf(snack)+" Cal");
                     tv_daily_calorie_burned.setText("Today Exercises : "+ String.valueOf(calorieBurned)+" Cal");
 
-
+                    if(dailyCalorie>=dailyGoal){
+                        circularProgressBar.setProgressBarColor(Color.rgb(215,122,55));
+                    }
+                    else {
+                        circularProgressBar.setProgressBarColor(Color.rgb(255,255,255));
+                    }
 
 
                     db.runTransaction(new Transaction.Function<Double>() {
@@ -159,6 +155,14 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                         public void onSuccess(Double result) {
                             dailyCalorie();
                             Log.d(TAG, "Transaction success: " + result);
+
+                            if(dailyCalorie>=dailyGoal){
+                                circularProgressBar.setProgressBarColor(Color.rgb(215,122,55));
+                            }
+                            else {
+                                circularProgressBar.setProgressBarColor(Color.rgb(255,255,255));
+                            }
+
                         }
                     })
                             .addOnFailureListener(new OnFailureListener() {
@@ -225,16 +229,12 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                 startActivity(intent1);
                 break;
             case R.id.btn_add_lunch:
-                startActivity(new Intent(getActivity(), FoodConsumtion.class));
-
                 Intent intent2 = new Intent(getActivity(), ListFoodActivity.class);
                 //intent.putExtra("model", model);
                 intent2.putExtra("waktuMakan","Lunch");
                 startActivity(intent2);
                 break;
             case R.id.btn_add_snack:
-                startActivity(new Intent(getActivity(), FoodConsumtion.class));
-
                 Intent intent3 = new Intent(getActivity(), ListFoodActivity.class);
                 //intent.putExtra("model", model);
                 intent3.putExtra("waktuMakan","Snack");

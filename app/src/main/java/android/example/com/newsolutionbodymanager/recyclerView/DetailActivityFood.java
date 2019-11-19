@@ -5,18 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.example.com.newsolutionbodymanager.FoodConsumtion.FoodConsumtion;
-import android.example.com.newsolutionbodymanager.LoginAndFriend.User;
+import android.example.com.newsolutionbodymanager.FoodConsumtion.Obecity;
 import android.example.com.newsolutionbodymanager.MainActivity;
 import android.example.com.newsolutionbodymanager.R;
-import android.example.com.newsolutionbodymanager.bottomNav.DashboardFragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,8 +26,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -38,6 +34,7 @@ import java.util.Map;
 public class DetailActivityFood extends AppCompatActivity implements View.OnClickListener{
 TextView foodName,calorieInfo,carbsInfo,proteinInfo,fatInfo;
 Button btnAddDetail;
+ProgressBar progressBar;
 ImageView imgFood;
     String waktuMakan;
     Toolbar mTopToolbar;
@@ -57,6 +54,8 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
         fatInfo = findViewById(R.id.tv_fat_info);
         btnAddDetail= findViewById(R.id.btn_add_detail_food);
         imgFood = findViewById(R.id.img_food);
+        progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.GONE);
 
 
         btnAddDetail.setOnClickListener(this);
@@ -83,6 +82,8 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
     protected void onStart() {
         super.onStart();
 
+        cekCalorie();
+
         Intent i=getIntent();
         final String food=i.getExtras().getString("jangkrik");
 
@@ -97,6 +98,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
                         Long carbs = document.getLong("carbs");
                         Long protein = document.getLong("protein");
                         Long fat = document.getLong("fat");
+
                          img = document.getString("imageUrl");
 
                         calorieInfo.setText( String.valueOf(calorie)+" Calories");
@@ -128,6 +130,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
         final DocumentReference dt = db.collection("users").document(uid);
         final DocumentReference docRef = db.collection("food").document(food);
 
+
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -155,7 +158,7 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
                             @Override
                             public void onSuccess(Double result) {
                                 Log.d(TAG, "WOIRRRRRRRRRRRRRRRRRRRRR "+result);
-
+                                progressBar.setVisibility(View.GONE);
                                 Intent tent = new Intent(DetailActivityFood.this,MainActivity.class);
                                 startActivity(tent);
                                 writeHistory(calorie,food,img,waktuMakan);
@@ -173,7 +176,39 @@ private FirebaseFirestore db = FirebaseFirestore.getInstance();
         });
 
 
+
+
     }
+
+    private void cekCalorie(){
+        final String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DocumentReference docRef = db.collection("users").document(uid);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Long daily = document.getLong("dailyCalorie");
+                        Long goal = document.getLong("dailyCalorieGoal");
+
+                        if(daily >= goal) {
+                            Intent obecity = new Intent(DetailActivityFood.this, Obecity.class);
+                            startActivity(obecity);
+                        }
+
+                        Log.d(TAG, "OBECITY CHECKER BERHASIL");
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
 
 private void writeHistory(double calorie,String nama,String imgUrl,String waktuMakan){
 
@@ -205,7 +240,9 @@ private void writeHistory(double calorie,String nama,String imgUrl,String waktuM
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_add_detail_food:
+                progressBar.setVisibility(View.VISIBLE);
                 AddFood();
+
                 break;
 
         }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".imgProcessing.ScanDoneActivity">
+    tools:context=".FoodConsumtion.Obecity">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,53 +14,37 @@
         android:paddingTop="80dp"
         android:layout_centerHorizontal="true"
         >
-        <ImageView
-            android:layout_width="105dp"
-            android:layout_height="105dp"
-            android:src="@drawable/check"
-            android:layout_gravity="center"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:fontFamily="@font/segoe_ui_bold"
             android:layout_height="wrap_content"
-            android:text="@string/food_scanned"
+            android:text="UNHEALTHY LIFE DETECTED"
             android:textColor="#373737"
-            android:textSize="38sp"
+            android:textSize="25sp"
             android:layout_gravity="center"
             android:layout_marginTop="21dp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#BFBFBF"
-            android:layout_marginTop="26dp"/>
-        <TextView
-            android:id="@+id/tv_food_name"
-            android:layout_width="wrap_content"
-            android:fontFamily="@font/segoe_ui"
-            android:layout_height="wrap_content"
-            android:text="@string/chicken_sandwich"
-            android:textColor="#373737"
-            android:textSize="19sp"
-            android:layout_gravity="center"
-            android:layout_marginTop="26dp"/>
+
         <ImageView
-            android:layout_width="101dp"
-            android:layout_height="101dp"
-            android:src="@drawable/foodscaned"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/obecity"
             android:layout_gravity="center"
             android:layout_marginTop="21dp"/>
         <TextView
             android:id="@+id/tv_calorie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/_252_calories"
-            android:fontFamily="@font/segoe_ui_bold"
+            android:text="@string/pesan_obecity"
+            android:fontFamily="@font/segoe_ui"
+            android:layout_marginHorizontal="20dp"
+            android:textAlignment="center"
             android:textColor="#373737"
             android:textSize="19sp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"/>
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:id="@+id/btn_confirm"
             android:layout_gravity="center"
             android:layout_height="wrap_content"

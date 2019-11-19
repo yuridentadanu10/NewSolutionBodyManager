@@ -89,8 +89,6 @@ public class ListFoodActivity extends AppCompatActivity {
             @Override
             public void onItemClick(final DocumentSnapshot documentSnapshot, int position) {
                 String id = documentSnapshot.getId();
-                Toast.makeText(ListFoodActivity.this,
-                        "Position: " +position + " ID: " +id, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ListFoodActivity.this, DetailActivityFood.class);
                 //intent.putExtra("model", model);
                 intent.putExtra("jangkrik", id);

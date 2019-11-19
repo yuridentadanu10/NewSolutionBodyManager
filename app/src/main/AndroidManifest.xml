@@ -21,14 +21,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bottomNav.tes321"></activity>
+        <activity android:name=".FoodConsumtion.Obecity"></activity>
+        <activity android:name=".bottomNav.tes321" />
         <activity android:name=".bottomNav.tes123" />
         <activity android:name=".sportActivity.ExercisesActivity" />
         <activity android:name=".sportActivity.SportActivity" />
         <activity android:name=".imgProcessing.ScanDoneActivity" />
         <activity android:name=".recyclerView.DetailActivityFood" />
         <activity android:name=".recyclerView.ListFoodActivity" />
-        <activity android:name=".FoodConsumtion.FoodConsumtion" />
         <activity android:name=".welcomingActivity.FirstTimeSetupActivity" />
         <activity android:name=".LoginAndFriend.RegisterActivity" />
         <activity android:name=".welcomingActivity.Welcome_Activity" />

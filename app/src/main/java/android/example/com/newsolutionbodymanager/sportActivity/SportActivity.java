@@ -246,6 +246,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
                 else {
                     Toast.makeText(SportActivity.this,
                             "Inputan anda tidak masuk akal", Toast.LENGTH_SHORT).show();
+                    calorieBurned = 0;
                 }
                 return bakarkalori;
             }
@@ -324,6 +325,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
                 else{
                     Toast.makeText(SportActivity.this,
                             "Inputan anda tidak masuk akal", Toast.LENGTH_SHORT).show();
+                    calorieBurned=0;
                 }
                 break;
         }

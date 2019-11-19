@@ -15,6 +15,7 @@
         android:layout_gravity="center"
         android:paddingTop="5dp"
         android:textSize="16sp"
+    android:fontFamily="@font/segoe_ui"
         android:textAlignment="center"
         android:text="Please fill out this form to complete your account setup"/>
 
@@ -35,8 +36,13 @@
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:autofillHints="Male" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#373737" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"

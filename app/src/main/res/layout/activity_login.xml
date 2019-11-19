@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            
+
             android:layout_centerVertical="true" />
 
         <LinearLayout
@@ -121,6 +121,7 @@
         android:id="@+id/tv_dontHave"
         android:layout_below="@+id/whitebox"
         android:layout_centerHorizontal="true"
+        android:fontFamily="@font/segoe_ui"
         android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

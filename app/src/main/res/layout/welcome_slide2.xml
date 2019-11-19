@@ -17,6 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="33dp"
+        android:fontFamily="@font/segoe_ui_bold"
         android:layout_marginRight="33dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,18 +37,10 @@
         android:layout_marginLeft="59dp"
         android:text="@string/use_our_food_scanning_feature_to_check_up_on_your_daily_nutritional_intake"
         android:textAlignment="center"
+        android:fontFamily="@font/segoe_ui"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorText"
         android:textSize="12sp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="330dp"
-        android:layout_marginTop="670dp"
-        android:text="Skip"
-        android:textColor="#8D8D8D"
-        android:textSize="17sp" />
-
 
 
 </RelativeLayout>

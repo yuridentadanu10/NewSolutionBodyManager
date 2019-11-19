@@ -188,4 +188,5 @@
     <string name="Sign_Out">Sign Out</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="pesan_obecity">unfortunately you have consumed too many calories today :(( for your health let\'s do some exercises</string>
 </resources>

@@ -129,7 +129,7 @@ public class ProfileFragment extends Fragment {
 
     private void setUpRecyclerView(View view) {
         String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query = db.collection("users").document(uid).collection("historiMakanan").orderBy("name").limit(3);
+        Query query = db.collection("users").document(uid).collection("historiMakanan").orderBy("name").limit(10);
 
         FirestoreRecyclerOptions<FoodHistory> options = new FirestoreRecyclerOptions.Builder<FoodHistory>()
                 .setQuery(query, FoodHistory.class)
@@ -151,7 +151,7 @@ public class ProfileFragment extends Fragment {
     }
     private void setUpRecyclerViewOlahraga(View view) {
         String uid =   FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Query query = db.collection("users").document(uid).collection("historiOlahraga").orderBy("name").limit(3);
+        Query query = db.collection("users").document(uid).collection("historiOlahraga").orderBy("name").limit(10);
 
         FirestoreRecyclerOptions<SportHistory> options = new FirestoreRecyclerOptions.Builder<SportHistory>()
                 .setQuery(query, SportHistory.class)

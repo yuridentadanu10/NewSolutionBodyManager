@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,6 +32,7 @@ public class FirstTimeSetupActivity extends AppCompatActivity implements Adapter
     Button btnSubmit;
     EditText etAge,etHeight,etWeight,etWeightGoal;
     Object item;
+    ProgressBar progressBar;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
     private static final String TAG = "firsttimesetup";
