@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".reminder.ReminderActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_support"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/judul_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:textSize="20dp"
+            android:layout_marginStart="5dp"
+            android:text="Setting Reminder"
+            android:textAppearance="@android:style/TextAppearance.WindowTitle"
+            android:textColor="#76C33A"
+            android:visibility="visible"/>
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/breakfast_reminder"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_once_time"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/alarm1" />
+        <TextView
+            android:id="@+id/tv_once_time"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_time" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/lunch_reminder"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_once_time1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/alarm2" />
+        <TextView
+            android:id="@+id/tv_once_time1"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_time" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+
+        android:text="@string/dinner_reminder"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/btn_once_time2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/alarm3" />
+        <TextView
+            android:id="@+id/tv_once_time2"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:text="@string/alarm_time" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_set_once_alarm"
+
+        android:layout_width="250dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_margin="27dp"
+        android:background="@drawable/radius_burned_button"
+        android:text="@string/set_one_time_alarm"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18sp"  />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,6 +1,7 @@
 package android.example.com.newsolutionbodymanager.sportActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.LoginAndFriend.LoginActivity;
@@ -9,13 +10,25 @@ import android.example.com.newsolutionbodymanager.R;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class ExercisesActivity extends AppCompatActivity implements View.OnClickListener {
 LinearLayout walking,running,cycling,hiking;
+Toolbar mTopToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises);
+
+        mTopToolbar = findViewById(R.id.toolbar_support);
+        setSupportActionBar(mTopToolbar);
+
+        TextView textView = mTopToolbar.findViewById(R.id.judul_toolbar);
+        textView.setText("Exercise");
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         walking = findViewById(R.id.linear_Walking);
         running = findViewById(R.id.linear_Running);
         cycling = findViewById(R.id.linear_Cycling);

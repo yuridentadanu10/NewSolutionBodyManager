@@ -16,6 +16,8 @@
         android:scrollbars="none">
 
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,13 +68,24 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/radius_corner"
                                 android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:id="@+id/setting_reminder"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="right"
+                                    android:layout_marginRight="10dp"
+                                    android:fontFamily="@font/segoe_ui"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/reminder_setting"
+                                    android:textColor="#BFBFBF"
+                                    android:textSize="14sp" />
 
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_horizontal"
-                                    android:layout_marginTop="30dp"
+                                    android:layout_marginTop="10dp"
                                     android:orientation="vertical">
 
                                     <TextView

@@ -8,6 +8,7 @@ import android.example.com.newsolutionbodymanager.history.FoodHistory;
 import android.example.com.newsolutionbodymanager.history.HistoryFoodAdapter;
 import android.example.com.newsolutionbodymanager.history.HistorySportAdapter;
 import android.example.com.newsolutionbodymanager.history.SportHistory;
+import android.example.com.newsolutionbodymanager.reminder.ReminderActivity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -49,7 +50,7 @@ public class ProfileFragment extends Fragment {
     FirebaseStorage storage = FirebaseStorage.getInstance();
     Button btnchangeplan;
     Toolbar mTopToolbar;
-    TextView tv_profile_name,tv_profile_age,tv_profile_height,tv_profile_weight,tv_daily_calorie,tv_daily_calorie_burned;
+    TextView tv_reminder,tv_profile_name,tv_profile_age,tv_profile_height,tv_profile_weight,tv_daily_calorie,tv_daily_calorie_burned;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -72,6 +73,13 @@ public class ProfileFragment extends Fragment {
         tv_profile_height = view.findViewById(R.id.tv_profile_height);
         tv_daily_calorie = view.findViewById(R.id.tv_daily_calorie);
         tv_daily_calorie_burned = view.findViewById(R.id.tv_daily_calorie_burned);
+        tv_reminder = view.findViewById(R.id.setting_reminder);
+        tv_reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ReminderActivity.class));
+            }
+        });
 
     btnchangeplan=view.findViewById(R.id.btnChangePlans);
     btnchangeplan.setOnClickListener(new View.OnClickListener() {

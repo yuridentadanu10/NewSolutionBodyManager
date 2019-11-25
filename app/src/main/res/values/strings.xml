@@ -188,5 +188,12 @@
     <string name="Sign_Out">Sign Out</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
-    <string name="pesan_obecity">unfortunately you have consumed too many calories today :(( for your health let\'s do some exercises</string>
+    <string name="pesan_obecity">It seems that you have consumed more calories than what your goal is. Do you want to change your calorie goal, or do some exercises?</string>
+    <string name="breakfast_reminder">Breakfast Reminder</string>
+    <string name="alarm_time">waktu_reminder</string>
+    <string name="set_one_time_alarm">Set Reminder</string>
+    <string name="reminder_setting">Setting</string>
+    <string name="lunch_reminder">Lunch Reminder</string>
+    <string name="dinner_reminder">Dinner Reminder</string>
+    <string name="_4_0_m">0 meter</string>
 </resources>

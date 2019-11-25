@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:fontFamily="@font/segoe_ui_bold"
             android:layout_height="wrap_content"
-            android:text="UNHEALTHY LIFE DETECTED"
+            android:text="Whoa, slow down!"
             android:textColor="#373737"
             android:textSize="25sp"
             android:layout_gravity="center"

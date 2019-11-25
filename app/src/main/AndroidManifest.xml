@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodConsumtion.Obecity"></activity>
+        <activity android:name=".reminder.ReminderActivity"></activity>
+        <activity android:name=".FoodConsumtion.Obecity" />
         <activity android:name=".bottomNav.tes321" />
         <activity android:name=".bottomNav.tes123" />
         <activity android:name=".sportActivity.ExercisesActivity" />

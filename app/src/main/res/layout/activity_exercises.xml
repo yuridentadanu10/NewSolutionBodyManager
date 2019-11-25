@@ -5,7 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".sportActivity.ExercisesActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_support"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#ffffff"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/judul_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:textSize="20dp"
+            android:layout_marginStart="5dp"
+            android:text="Exercise"
+            android:textAppearance="@android:style/TextAppearance.WindowTitle"
+            android:textColor="#76C33A"
+            android:visibility="visible"/>
+
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
+
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="60dp"
@@ -13,6 +38,7 @@
         android:src="@drawable/reload"
         />
     <LinearLayout
+        android:layout_below="@id/toolbar_support"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"

@@ -2,6 +2,7 @@ package android.example.com.newsolutionbodymanager.sportActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -55,12 +56,24 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
     double hasil,calorieBurned,distance;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth ;
+    Toolbar mTopToolbar;
      String olahraga;
     int value1,value2,value3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sport);
+        mTopToolbar = findViewById(R.id.toolbar_support);
+        setSupportActionBar(mTopToolbar);
+
+        Intent i=getIntent();
+        olahraga=i.getExtras().getString("olahraga");
+        TextView textView = mTopToolbar.findViewById(R.id.judul_toolbar);
+        textView.setText(olahraga);
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         kaloriOlahraga = findViewById(R.id.calorie_olahraga);
         menitOlahraga = findViewById(R.id.menit_olahraga);
@@ -271,6 +284,7 @@ public class SportActivity extends AppCompatActivity implements View.OnClickList
         btnCancelsport = findViewById(R.id.btn_cancel_sport);
         btnCancelsport.setOnClickListener(this);
         btnsaveSport.setOnClickListener(this);
+
     }
 
     private Double cekDouble(double calorieBurned){

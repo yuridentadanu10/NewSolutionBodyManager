@@ -4,6 +4,7 @@ package android.example.com.newsolutionbodymanager.bottomNav;
 import android.content.Intent;
 import android.example.com.newsolutionbodymanager.R;
 import android.example.com.newsolutionbodymanager.recyclerView.ListFoodActivity;
+import android.example.com.newsolutionbodymanager.reminder.ReminderActivity;
 import android.example.com.newsolutionbodymanager.sportActivity.ExercisesActivity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -80,6 +81,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
         tv_daily_calorie_lunch= view.findViewById(R.id.tv_daily_calorie_lunch);
         tv_daily_calorie_burned=view.findViewById(R.id.tv_daily_calorie_burned);
         tv_daily_calorie_snack= view.findViewById(R.id.tv_daily_calorie_snack);
+
         btn_addBreakfast.setOnClickListener(this);
         btn_addLunch.setOnClickListener(this);
         btn_addDinner.setOnClickListener(this);
@@ -120,7 +122,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
 
                     circularProgressBar.setProgress(dailyCalorie);
                     circularProgressBar.setProgressMax(dailyGoal);
-                    tvDailyCalorie_goal.setText(String.valueOf(dailyCalorie)+" / "+String.valueOf(dailyGoal));
+                    tvDailyCalorie_goal.setText(String.valueOf(dailyCalorie)+"/"+String.valueOf(dailyGoal));
                     tvCalorieConsumed.setText(String.valueOf(calorieConsumed)+" cal");
                     tv_caloriBurn.setText(String.valueOf(calorieBurned)+" cal");
                     tvCurrentWeight.setText(String.valueOf(currentWeight)+" kg");
@@ -131,12 +133,7 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                     tv_daily_calorie_snack.setText("Today : "+ String.valueOf(snack)+" Cal");
                     tv_daily_calorie_burned.setText("Today Exercises : "+ String.valueOf(calorieBurned)+" Cal");
 
-                    if(dailyCalorie>=dailyGoal){
-                        circularProgressBar.setProgressBarColor(Color.rgb(215,122,55));
-                    }
-                    else {
-                        circularProgressBar.setProgressBarColor(Color.rgb(255,255,255));
-                    }
+
 
 
                     db.runTransaction(new Transaction.Function<Double>() {
@@ -155,13 +152,6 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
                         public void onSuccess(Double result) {
                             dailyCalorie();
                             Log.d(TAG, "Transaction success: " + result);
-
-                            if(dailyCalorie>=dailyGoal){
-                                circularProgressBar.setProgressBarColor(Color.rgb(215,122,55));
-                            }
-                            else {
-                                circularProgressBar.setProgressBarColor(Color.rgb(255,255,255));
-                            }
 
                         }
                     })
@@ -243,6 +233,8 @@ private FancyButton btnEdit,btn_addBreakfast,btn_addLunch,btn_addDinner,btn_addS
             case R.id.btn_walking:
                 startActivity(new Intent(getActivity(), ExercisesActivity.class));
                 break;
+
+
 
 
         }
